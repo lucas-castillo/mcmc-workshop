@@ -9,6 +9,7 @@ website:
         text: Home
       - organizers.qmd
       - schedule.qmd
+      - materials.qmd
       - href: requirements.qmd
         text: Requirements
 
@@ -16,9 +17,9 @@ format:
   html:
     theme: journal
     css: styles.css
-    toc: true
-
+    toc: false
     include-before-body: _in-progress.qmd
     bibliography: references.bib
+    csl: ./apa.csl
 
 
