@@ -1,1 +1,0 @@
-Sitemap: https://lucas-castillo.github.io/mcmc-workshop/sitemap.xml
