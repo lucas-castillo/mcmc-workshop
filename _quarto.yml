@@ -16,5 +16,7 @@ format:
     css: styles.css
     toc: true
 
+    include-before-body: _in-progress.qmd
+    bibliography: references.bib
 
 
