@@ -1,15 +1,27 @@
 ---
-title: ""
+title: "Autocorrelated Sampling in Cognition"
+subtitle: "Implementing MCMC Algorithms as Cognitive Models and Fitting Them Without Likelihoods"
+bibliography: references.bib
 ---
+A fundamental question in cognitive science is how people achieve such high levels of performance given the limited resources they have access to. Human behaviour is similar to the Bayesian ideal, but implementing Bayes' rule is intractable but for the simplest problems. 
+
+To circumvent this problem, computer scientists have developed a family of algorithms, Markov Chain Monte Carlo [@brooks2011HandbookMarkovChain], which operate by drawing samples directly from the posterior distribution (thus avoiding distribution multiplication), which make the inference task possible. 
+An exciting development in cognitive science has been to show that these inference algorithms describe human behaviour remarkably well: in perception [@gershman2012MultistabilityPerceptualInference], causal reasoning [@bramley2017FormalizingNeurathsShip; @davis2020ProcessModelCausal], forecasting [@spicer2024HowPeoplePredict], numerical estimates [@lieder2018AnchoringBiasReflects] and probability judgments [@dasgupta2017WhereHypothesesCome] among others [^1].
+
+In this workshop, we will:
+
+- discuss approaches to cognition using MCMC,
+- show how to use the `samplr` package, an R package that implements these models, and
+- show how to go from simulated data to model and parameter inference
+
+No previous experience with MCMC algorithms is needed.
+
+In this website, you will find a schedule for the workshop as well as workshop materials and slides.
+
 ::: {.callout-note}
 ## Workshop Requirements
 {{< include _requirements.qmd >}}
 :::
 
-Please install the `samplr` package in R, which you can do by running:
-```r
-install.packages("samplr")
-```
+[^1]: We have compiled a list of papers using sampling approaches to cognition [here](https://sampling.warwick.ac.uk/#Literature){target="_blank"}
 
-If you have issues installing these, please email Lucas Castillo ([lucas.castillo@warwick.ac.uk](mailto:lucas.castillo@warwick.ac.uk)). 
-:::
