@@ -1,0 +1,9 @@
+---
+title: "Schedule"
+---
+| Time |  |
+| -------- | ------- |
+| 8.35 - 9.15  | An Introduction to MCMC |
+| 9.15 -  | The `samplr` package |
+| xx | Simulation-based inference |
+| xx | Future Directions |
