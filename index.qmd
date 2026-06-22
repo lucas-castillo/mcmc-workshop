@@ -1,17 +1,9 @@
 ---
 title: ""
 ---
-
-
-
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
-
+::: {.callout-warning}
+This website is still under construction! Some sections might be empty. 
+:::
 ::: {.callout-note}
 ## Requirements
 Before the workshop, please install the [R programming language](https://www.r-project.org/) in your machine. An IDE, such as [RStudio](https://posit.co/products/open-source/rstudio) will be useful but not necessary. 
@@ -20,8 +12,4 @@ Please install the `samplr` package in R, which you can do by running:
 ```r
 install.packages("samplr")
 ```
-:::
-
-::: {.callout-warning}
-This website is still under construction! Some sections might be empty. 
 :::

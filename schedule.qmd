@@ -1,6 +1,10 @@
 ---
 title: "Schedule"
 ---
+::: {.callout-warning}
+This website is still under construction! Some sections might be empty. 
+:::
+
 | Time |  |
 | -------- | ------- |
 | 8.35 - 9.15  | An Introduction to MCMC |

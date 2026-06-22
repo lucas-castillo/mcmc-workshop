@@ -1,9 +1,6 @@
 ---
 title: "About"
 ---
-
-About this site
-
-```{r}
-1 + 1
-```
+::: {.callout-warning}
+This website is still under construction! Some sections might be empty. 
+:::
