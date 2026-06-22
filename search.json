@@ -4,20 +4,27 @@
     "href": "index.html",
     "title": "Autocorrelated Sampling in Cognition",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\n\n\nNoteRequirements\n\n\n\nBefore the workshop, please install the R programming language in your machine. An IDE, such as RStudio will be useful but not necessary.\nPlease install the samplr package in R, which you can do by running:\ninstall.packages(\"samplr\")\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThis website is still under construction! Some sections might be empty."
+    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty.\n\n\n\n\n\n\n\n\nNoteRequirements\n\n\n\nBefore the workshop, please install the R programming language in your machine. An IDE, such as RStudio will be useful but not necessary.\nPlease install the samplr package in R, which you can do by running:\ninstall.packages(\"samplr\")"
+  },
+  {
+    "objectID": "materials.html",
+    "href": "materials.html",
+    "title": "Materials",
+    "section": "",
+    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty."
   },
   {
     "objectID": "schedule.html",
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Time\n\n\n\n\n\n8.35 - 9.15\nAn Introduction to MCMC\n\n\n9.15 -\nThe samplr package\n\n\nxx\nSimulation-based inference\n\n\nxx\nFuture Directions"
+    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty.\n\n\n\n\n\nTime\n\n\n\n\n\n8.35 - 9.15\nAn Introduction to MCMC\n\n\n9.15 -\nThe samplr package\n\n\nxx\nSimulation-based inference\n\n\nxx\nFuture Directions"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty."
   }
 ]
