@@ -1,9 +1,9 @@
 ---
 title: "Schedule"
 ---
+This schedule is still provisional. 
 
 <!-- Subtract 2.5h for Brazil Time -->
-Provisional Schedule!
 
 | Time |  |
 | -------- | ------- |
