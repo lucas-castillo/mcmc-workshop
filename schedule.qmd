@@ -18,4 +18,4 @@ Provisional Schedule!
 | 13:55 - 14:25 | Using ABC for simulation-based inference |
 | 14:25 - 14:35 | Further reading on SBI |
 | 14:35 - 14:55 | Future Directions |
-| 14:55 - 15:0 | Final Wrap-Up |
+| 14:55 - 15:00 | Final Wrap-Up |
