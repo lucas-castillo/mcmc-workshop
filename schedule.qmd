@@ -1,9 +1,6 @@
 ---
 title: "Schedule"
 ---
-::: {.callout-warning}
-This website is still under construction! Some sections might be empty. 
-:::
 
 <!-- Subtract 2.5h for Brazil Time -->
 Provisional Schedule!
