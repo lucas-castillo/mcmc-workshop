@@ -11,7 +11,7 @@ website:
       - schedule.qmd
       - materials.qmd
       - href: requirements.qmd
-        text: Requirements
+        text: Prerequisites
 
 format:
   html:

@@ -19,7 +19,7 @@ No previous experience with MCMC algorithms is needed.
 In this website, you will find a schedule for the workshop as well as workshop materials and slides.
 
 ::: {.callout-note}
-## Workshop Requirements
+## Workshop Prerequisites
 {{< include _requirements.qmd >}}
 :::
 

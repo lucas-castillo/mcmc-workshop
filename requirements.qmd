@@ -1,4 +1,4 @@
 ---
-title: "Workshop Requirements"
+title: "Workshop Prerequisites"
 ---
 {{< include _requirements.qmd >}}
