@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Autocorrelated Sampling in Cognition</title>
+<title>Workshop Requirements – Autocorrelated Sampling in Cognition</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -58,27 +58,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -148,7 +128,7 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -164,7 +144,7 @@ div.csl-indent {
 <span class="menu-text">Materials</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./requirements.html"> 
+    <a class="nav-link active" href="./requirements.html" aria-current="page"> 
 <span class="menu-text">Requirements</span></a>
   </li>  
 </ul>
@@ -197,8 +177,7 @@ Warning
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Autocorrelated Sampling in Cognition</h1>
-<p class="subtitle lead">Implementing MCMC Algorithms as Cognitive Models and Fitting Them Without Likelihoods</p>
+<h1 class="title">Workshop Requirements</h1>
 </div>
 
 
@@ -215,66 +194,15 @@ Warning
 </header>
 
 
-<p>A fundamental question in cognitive science is how people achieve such high levels of performance given the limited resources they have access to. Human behaviour is similar to the Bayesian ideal, but implementing Bayes’ rule is intractable but for the simplest problems.</p>
-<p>To circumvent this problem, computer scientists have developed a family of algorithms, Markov Chain Monte Carlo <span class="citation" data-cites="brooks2011HandbookMarkovChain">(<a href="#ref-brooks2011HandbookMarkovChain" role="doc-biblioref">Brooks et al., 2011</a>)</span>, which operate by drawing samples directly from the posterior distribution (thus avoiding distribution multiplication), which make the inference task possible. An exciting development in cognitive science has been to show that these inference algorithms describe human behaviour remarkably well: in perception <span class="citation" data-cites="gershman2012MultistabilityPerceptualInference">(<a href="#ref-gershman2012MultistabilityPerceptualInference" role="doc-biblioref">Gershman et al., 2012</a>)</span>, causal reasoning <span class="citation" data-cites="bramley2017FormalizingNeurathsShip davis2020ProcessModelCausal">(<a href="#ref-bramley2017FormalizingNeurathsShip" role="doc-biblioref">Bramley et al., 2017</a>; <a href="#ref-davis2020ProcessModelCausal" role="doc-biblioref">Davis &amp; Rehder, 2020</a>)</span>, forecasting <span class="citation" data-cites="spicer2024HowPeoplePredict">(<a href="#ref-spicer2024HowPeoplePredict" role="doc-biblioref">Spicer et al., 2024</a>)</span>, numerical estimates <span class="citation" data-cites="lieder2018AnchoringBiasReflects">(<a href="#ref-lieder2018AnchoringBiasReflects" role="doc-biblioref">Lieder et al., 2018</a>)</span> and probability judgments <span class="citation" data-cites="dasgupta2017WhereHypothesesCome">(<a href="#ref-dasgupta2017WhereHypothesesCome" role="doc-biblioref">Dasgupta et al., 2017</a>)</span> among others <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-<p>In this workshop, we will:</p>
-<ul>
-<li>discuss approaches to cognition using MCMC,</li>
-<li>show how to use the <code>samplr</code> package, an R package that implements these models, and</li>
-<li>show how to go from simulated data to model and parameter inference</li>
-</ul>
-<p>No previous experience with MCMC algorithms is needed.</p>
-<p>In this website, you will find a schedule for the workshop as well as workshop materials and slides.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Workshop Requirements
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <p>Before the workshop, please install the <a href="https://www.r-project.org/">R programming language</a> in your machine. An IDE, such as <a href="https://posit.co/products/open-source/rstudio">RStudio</a> is recommended but not necessary.</p>
 <p>The workshop will make use of the following packages: <code>samplr</code>, <code>samplrData</code>, <code>abc</code>; which you install by running:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"samplr"</span>, <span class="st">"samplrData"</span>, <span class="st">"abc"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>on your R console.</p>
 <p>If you have issues installing these, please email Lucas Castillo (<a href="mailto:lucas.castillo@warwick.ac.uk">lucas.castillo@warwick.ac.uk</a>).</p>
-</div>
-</div>
 
 
 
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
-<div id="ref-bramley2017FormalizingNeurathsShip" class="csl-entry" role="listitem">
-Bramley, N. R., Dayan, P., Griffiths, T. L., &amp; Lagnado, D. A. (2017). Formalizing <span>Neurath</span>’s ship: <span>Approximate</span> algorithms for online causal learning. <em>Psychological Review</em>, <em>124</em>(3), 301–338. <a href="https://doi.org/10.1037/rev0000061">https://doi.org/10.1037/rev0000061</a>
-</div>
-<div id="ref-brooks2011HandbookMarkovChain" class="csl-entry" role="listitem">
-Brooks, S., Andrew Gelman, Jones, G., &amp; Meng, X.-L. (Eds.). (2011). <em>Handbook for <span>Markov</span> chain <span>Monte Carlo</span></em>. Taylor &amp; Francis.
-</div>
-<div id="ref-dasgupta2017WhereHypothesesCome" class="csl-entry" role="listitem">
-Dasgupta, I., Schulz, E., &amp; Gershman, S. J. (2017). Where do hypotheses come from? <em>Cognitive Psychology</em>, <em>96</em>, 1–25. <a href="https://doi.org/10.1016/j.cogpsych.2017.05.001">https://doi.org/10.1016/j.cogpsych.2017.05.001</a>
-</div>
-<div id="ref-davis2020ProcessModelCausal" class="csl-entry" role="listitem">
-Davis, Z. J., &amp; Rehder, B. (2020). A process model of causal reasoning. <em>Cognitive Science</em>, <em>44</em>(5), e12839.
-</div>
-<div id="ref-gershman2012MultistabilityPerceptualInference" class="csl-entry" role="listitem">
-Gershman, S. J., Vul, E., &amp; Tenenbaum, J. B. (2012). Multistability and <span>Perceptual Inference</span>. <em>Neural Computation</em>, <em>24</em>(1), 1–24. <a href="https://doi.org/10.1162/NECO_a_00226">https://doi.org/10.1162/NECO_a_00226</a>
-</div>
-<div id="ref-lieder2018AnchoringBiasReflects" class="csl-entry" role="listitem">
-Lieder, F., Griffiths, T. L., M. Huys, Q. J., &amp; Goodman, N. D. (2018). The anchoring bias reflects rational use of cognitive resources. <em>Psychonomic Bulletin &amp; Review</em>, <em>25</em>(1), 322–349. <a href="https://doi.org/10.3758/s13423-017-1286-8">https://doi.org/10.3758/s13423-017-1286-8</a>
-</div>
-<div id="ref-spicer2024HowPeoplePredict" class="csl-entry" role="listitem">
-Spicer, J., Zhu, J.-Q., Chater, N., &amp; Sanborn, A. N. (2024). How do people predict a random walk? <span>Lessons</span> for models of human cognition. <em>Psychological Review</em>, <em>131</em>(5), 1069–1113. <a href="https://doi.org/10.1037/rev0000493">https://doi.org/10.1037/rev0000493</a>
-</div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>We have compiled a list of papers using sampling approaches to cognition <a href="https://sampling.warwick.ac.uk/#Literature" target="_blank">here</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

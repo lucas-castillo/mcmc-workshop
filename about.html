@@ -104,6 +104,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./materials.html"> 
+<span class="menu-text">Materials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./requirements.html"> 
+<span class="menu-text">Requirements</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -120,6 +128,19 @@ ul.task-list li input[type="checkbox"] {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This website is still under construction! Some sections might be empty and information might be updated without notice.</p>
+</div>
+</div>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -140,19 +161,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This website is still under construction! Some sections might be empty.</p>
-</div>
-</div>
 
 
 
@@ -230,7 +238,7 @@ Warning
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/lucas-castillo\.github\.io\/mcmc-workshop\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

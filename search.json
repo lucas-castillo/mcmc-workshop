@@ -4,27 +4,41 @@
     "href": "index.html",
     "title": "Autocorrelated Sampling in Cognition",
     "section": "",
-    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty.\n\n\n\n\n\n\n\n\nNoteRequirements\n\n\n\nBefore the workshop, please install the R programming language in your machine. An IDE, such as RStudio is recommended but not necessary.\nPlease install the samplr package in R, which you can do by running:\ninstall.packages(\"samplr\")\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
+    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty and information might be updated without notice.\nA fundamental question in cognitive science is how people achieve such high levels of performance given the limited resources they have access to. Human behaviour is similar to the Bayesian ideal, but implementing Bayes’ rule is intractable but for the simplest problems.\nTo circumvent this problem, computer scientists have developed a family of algorithms, Markov Chain Monte Carlo (Brooks et al., 2011), which operate by drawing samples directly from the posterior distribution (thus avoiding distribution multiplication), which make the inference task possible. An exciting development in cognitive science has been to show that these inference algorithms describe human behaviour remarkably well: in perception (Gershman et al., 2012), causal reasoning (Bramley et al., 2017; Davis & Rehder, 2020), forecasting (Spicer et al., 2024), numerical estimates (Lieder et al., 2018) and probability judgments (Dasgupta et al., 2017) among others 1.\nIn this workshop, we will:\nNo previous experience with MCMC algorithms is needed.\nIn this website, you will find a schedule for the workshop as well as workshop materials and slides."
   },
   {
-    "objectID": "materials.html",
-    "href": "materials.html",
-    "title": "Materials",
-    "section": "",
-    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty."
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nWe have compiled a list of papers using sampling approaches to cognition here↩︎"
   },
   {
     "objectID": "schedule.html",
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty.\n\n\n\nProvisional Schedule!\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
+    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty and information might be updated without notice.\n\n\n\n\n\n\n\nProvisional Schedule!\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "requirements.html",
+    "href": "requirements.html",
+    "title": "Workshop Requirements",
     "section": "",
-    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty."
+    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty and information might be updated without notice.\n\n\n\n\n\n\nBefore the workshop, please install the R programming language in your machine. An IDE, such as RStudio is recommended but not necessary.\nThe workshop will make use of the following packages: samplr, samplrData, abc; which you install by running:\ninstall.packages(c(\"samplr\", \"samplrData\", \"abc\"))\non your R console.\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
+  },
+  {
+    "objectID": "organizers.html",
+    "href": "organizers.html",
+    "title": "Organizers",
+    "section": "",
+    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty and information might be updated without notice.\n\n\n\n\n\n\n\nLucas Castillo\n\n\n\nLucas is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling. He is the lead developer of the samplr package.\n\n\n\nC. Stella Qian\n\n\n\nStella is a vision psychophysicist, specializing in depth perception, bistable stimuli perception, and visual attention. She is interested in interdisciplinary work with computational modelers, computer vision scientists, and behavioral neuroscientists. Currently, she works on understanding how our neural systems decide the percept we see during perceptual rivalry.\n\n\n\nAdam N. Sanborn\n\n\n\nAdam Sanborn is a Professor of Psychology at the University of Warwick. He gained his PhD in Psychological & Brain Sciences and Cognitive Science at Indiana University, and did his postdoctoral work at the Gatsby Computational Neuroscience Unit at UCL. Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, approximations to Bayesian models, and behavioural experiments. His research has been published in leading psychology journals such as Psychological Review, Trends in Cognitive Sciences, and Psychological Science, and he has won best paper awards in both psychology and computer science. His work has been funded by the ESRC, ERC, Alan Turing Institute, and NIESR, and he serves as Associate Editor for the Journal of Experimental Psychology: Learning, Memory, and Cognition."
+  },
+  {
+    "objectID": "materials.html",
+    "href": "materials.html",
+    "title": "Materials",
+    "section": "",
+    "text": "Warning\n\n\n\nThis website is still under construction! Some sections might be empty and information might be updated without notice."
   }
 ]
