@@ -7,7 +7,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - organizers.qmd
       - schedule.qmd
       - href: requirements.qmd
         text: Requirements
