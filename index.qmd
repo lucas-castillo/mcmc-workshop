@@ -2,8 +2,9 @@
 title: ""
 ---
 ::: {.callout-note}
-## Requirements
-Before the workshop, please install the [R programming language](https://www.r-project.org/) in your machine. An IDE, such as [RStudio](https://posit.co/products/open-source/rstudio) is recommended but not necessary. 
+## Workshop Requirements
+{{< include _requirements.qmd >}}
+:::
 
 Please install the `samplr` package in R, which you can do by running:
 ```r

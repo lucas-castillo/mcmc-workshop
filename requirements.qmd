@@ -1,0 +1,4 @@
+---
+title: "Workshop Requirements"
+---
+{{< include _requirements.qmd >}}

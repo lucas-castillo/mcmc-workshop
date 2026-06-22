@@ -9,6 +9,8 @@ website:
         text: Home
       - about.qmd
       - schedule.qmd
+      - href: requirements.qmd
+        text: Requirements
 
 format:
   html:
