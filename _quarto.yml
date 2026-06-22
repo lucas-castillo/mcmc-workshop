@@ -18,7 +18,7 @@ format:
     theme: journal
     css: styles.css
     toc: false
-    include-before-body: _in-progress.qmd
+    # include-before-body: _in-progress.qmd
     bibliography: references.bib
     csl: ./apa.csl
 
