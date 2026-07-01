@@ -2,3 +2,5 @@
 title: "Materials"
 ---
 Workshop materials and slides will be posted here closer to the date.
+
+- [test slides](slides/template_slides.html){target="_blank"}
