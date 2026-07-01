@@ -1,0 +1,3 @@
+[submodule "slides"]
+	path = slides
+	url = git@github.com:lucas-castillo/cogsci-mcmc-workshop-slides.git
