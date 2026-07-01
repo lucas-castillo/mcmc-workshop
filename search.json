@@ -21,6 +21,48 @@
     "text": "This schedule is still provisional.\n\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
   },
   {
+    "objectID": "slides/template_slides.html#this-is-a-test-slide",
+    "href": "slides/template_slides.html#this-is-a-test-slide",
+    "title": "Presentation title",
+    "section": "This is a test slide",
+    "text": "This is a test slide\nwith some text"
+  },
+  {
+    "objectID": "slides/template_slides.html#this-is-another-slide",
+    "href": "slides/template_slides.html#this-is-another-slide",
+    "title": "Presentation title",
+    "section": "This is another slide",
+    "text": "This is another slide\nwith some more text"
+  },
+  {
+    "objectID": "slides/template_slides.html#code-slide",
+    "href": "slides/template_slides.html#code-slide",
+    "title": "Presentation title",
+    "section": "Code Slide",
+    "text": "Code Slide\n\n\n\nx &lt;- c(1, 2, 3, 4, 5)\nmean(x)\n\n\n\n\n[1] 3"
+  },
+  {
+    "objectID": "slides/template_slides.html#code-2",
+    "href": "slides/template_slides.html#code-2",
+    "title": "Presentation title",
+    "section": "Code 2",
+    "text": "Code 2\n\nx &lt;- c(1, 2, 3, 4, 5)\nmean(x)"
+  },
+  {
+    "objectID": "slides/template_slides.html#snippets",
+    "href": "slides/template_slides.html#snippets",
+    "title": "Presentation title",
+    "section": "Snippets",
+    "text": "Snippets\nI’ve defined the following snippets\n\ntf for text flourish\ncf for code flourish\n:: for quarto div\ncol for 2-column environment"
+  },
+  {
+    "objectID": "slides/template_slides.html#fancy-math",
+    "href": "slides/template_slides.html#fancy-math",
+    "title": "Presentation title",
+    "section": "Fancy math",
+    "text": "Fancy math\n\\[\np(H|D) = \\frac{%\n    \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(D|H)P(H)}}\n    }{%\n      \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(B)}}\n}\n\\]"
+  },
+  {
     "objectID": "requirements.html",
     "href": "requirements.html",
     "title": "Workshop Prerequisites",
@@ -32,13 +74,13 @@
     "href": "organisers.html",
     "title": "Organisers",
     "section": "",
-    "text": "Lucas Castillo\n\n\n\nLucas is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling. He is the lead developer of the samplr package.\n\n\n\nC. Stella Qian\n\n\n\nStella is a vision psychophysicist, specializing in depth perception, bistable stimuli perception, and visual attention. She is interested in interdisciplinary work with computational modelers, computer vision scientists, and behavioral neuroscientists. Currently, she works on understanding how our neural systems decide the percept we see during perceptual rivalry.\n\n\n\nAdam N. Sanborn\n\n\n\nAdam Sanborn is a Professor of Psychology at the University of Warwick. He gained his PhD in Psychological & Brain Sciences and Cognitive Science at Indiana University, and did his postdoctoral work at the Gatsby Computational Neuroscience Unit at UCL. Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, approximations to Bayesian models, and behavioural experiments. His research has been published in leading psychology journals such as Psychological Review, Trends in Cognitive Sciences, and Psychological Science, and he has won best paper awards in both psychology and computer science. His work has been funded by the ESRC, ERC, Alan Turing Institute, and NIESR, and he serves as Associate Editor for the Journal of Experimental Psychology: Learning, Memory, and Cognition."
+    "text": "Lucas Castillo\n\n\n\nLucas is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling. He is the lead developer of the samplr package.\n\n\n\nC. Stella Qian\n\n\n\nStella is an interdisciplinary researcher incorporating her expertise on vision psychophysics, especially bistable perception and eye movements, with behavioural science and computer science. Currently, she works on developing an experimental paradigm to capture perceptual and decision making features that we can test different computational models on.\n\n\n\nAdam N. Sanborn\n\n\n\nAdam Sanborn is a Professor of Psychology at the University of Warwick. Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, sampling approximations to Bayesian models, and behavioural experiments."
   },
   {
     "objectID": "materials.html",
     "href": "materials.html",
     "title": "Materials",
     "section": "",
-    "text": "Workshop materials and slides will be posted here closer to the date."
+    "text": "Workshop materials and slides will be posted here closer to the date.\n\ntest slides"
   }
 ]
