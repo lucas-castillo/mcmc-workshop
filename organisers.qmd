@@ -8,7 +8,7 @@ sidebar:
 :::{.column-margin}
 ![](files/people/lucas.jpeg){width=200 style="border-radius:100%"}
 :::
-Lucas is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling.
+[Lucas](https://www.lucascastillo.net/) is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling.
 He is the lead developer of the `samplr` package.
 :::
 
@@ -17,7 +17,7 @@ He is the lead developer of the `samplr` package.
 :::{.column-margin}
 ![](files/people/stella.jpeg){width=200 style="border-radius:100%"}
 :::
-Stella is a vision psychophysicist, specializing in depth perception, bistable stimuli perception, and visual attention. She is interested in interdisciplinary work with computational modelers, computer vision scientists, and behavioral neuroscientists. Currently, she works on understanding how our neural systems decide the percept we see during perceptual rivalry.
+Stella is an interdisciplinary researcher incorporating her expertise on vision psychophysics, especially bistable perception and eye movements, with behavioural science and computer science. Currently, she works on developing an experimental paradigm to capture perceptual and decision making features that we can test different computational models on.  
 :::
 
 ### Adam N. Sanborn
@@ -25,5 +25,5 @@ Stella is a vision psychophysicist, specializing in depth perception, bistable s
 :::{.column-margin}
 ![](files/people/adam.jpg){width=200 style="border-radius:100%"}
 :::
-Adam Sanborn is a Professor of Psychology at the University of Warwick. He gained his PhD in Psychological & Brain Sciences and Cognitive Science at Indiana University, and did his postdoctoral work at the Gatsby Computational Neuroscience Unit at UCL. Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, approximations to Bayesian models, and behavioural experiments. His research has been published in leading psychology journals such as Psychological Review, Trends in Cognitive Sciences, and Psychological Science, and he has won best paper awards in both psychology and computer science. His work has been funded by the ESRC, ERC, Alan Turing Institute, and NIESR, and he serves as Associate Editor for the Journal of Experimental Psychology: Learning, Memory, and Cognition.
+[Adam Sanborn](https://profiles.warwick.ac.uk/pssjak-adam-sanborn) is a Professor of [Psychology at the University of Warwick](https://warwick.ac.uk/fac/sci/psych/). Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, sampling approximations to Bayesian models, and behavioural experiments.
 :::
