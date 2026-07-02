@@ -3,4 +3,21 @@ title: "Materials"
 ---
 Workshop materials and slides will be posted here closer to the date.
 
-- [test slides](slides/template_slides.html){target="_blank"}
+## Slides
+
+## Workshop Description
+
+## Documentation to the `samplr` package
+The `samplr` package is an R package available on [CRAN](https://cran.r-project.org/web/packages/samplr/index.html).
+With it, you can: 
+
+- use MCMC algorithms
+- use the Autocorrelated Bayesian Sampler model [@zhu2024AutocorrelatedBayesianSampler]
+- calculate some useful statistics that help with model inference.
+
+
+The documentation to the `samplr` package lives [here](https://lucas-castillo.github.io/samplr/) (with some very useful [vignettes](https://lucas-castillo.github.io/samplr/articles/)!). We have also written a manuscript on how to use it and how to fit MCMC models [@castillo2025SamplrPackageTool]. 
+
+It is an open source package, meaning that you can look at the source code [here](https://github.com/lucas-castillo/samplr). 
+
+If you have any feature suggestions or if you find any bugs, please report them [here](https://github.com/lucas-castillo/samplr/issues) (or send Lucas Castillo an email).  
