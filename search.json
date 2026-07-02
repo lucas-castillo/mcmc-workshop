@@ -81,6 +81,27 @@
     "href": "materials.html",
     "title": "Materials",
     "section": "",
-    "text": "Workshop materials and slides will be posted here closer to the date.\n\ntest slides"
+    "text": "Workshop materials and slides will be posted here closer to the date."
+  },
+  {
+    "objectID": "materials.html#slides",
+    "href": "materials.html#slides",
+    "title": "Materials",
+    "section": "Slides",
+    "text": "Slides"
+  },
+  {
+    "objectID": "materials.html#workshop-description",
+    "href": "materials.html#workshop-description",
+    "title": "Materials",
+    "section": "Workshop Description",
+    "text": "Workshop Description"
+  },
+  {
+    "objectID": "materials.html#documentation-to-the-samplr-package",
+    "href": "materials.html#documentation-to-the-samplr-package",
+    "title": "Materials",
+    "section": "Documentation to the samplr package",
+    "text": "Documentation to the samplr package\nThe samplr package is an R package available on CRAN. With it, you can:\n\nuse MCMC algorithms\nuse the Autocorrelated Bayesian Sampler model (Zhu et al., 2024)\ncalculate some useful statistics that help with model inference.\n\nThe documentation to the samplr package lives here (with some very useful vignettes!). We have also written a manuscript on how to use it and how to fit MCMC models (Castillo et al., 2025).\nIt is an open source package, meaning that you can look at the source code here.\nIf you have any feature suggestions or if you find any bugs, please report them here (or send Lucas Castillo an email)."
   }
 ]

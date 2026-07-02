@@ -23,7 +23,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -147,13 +167,36 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Workshop materials and slides will be posted here closer to the date.</p>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+</section>
+<section id="workshop-description" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-description">Workshop Description</h2>
+</section>
+<section id="documentation-to-the-samplr-package" class="level2">
+<h2 class="anchored" data-anchor-id="documentation-to-the-samplr-package">Documentation to the <code>samplr</code> package</h2>
+<p>The <code>samplr</code> package is an R package available on <a href="https://cran.r-project.org/web/packages/samplr/index.html">CRAN</a>. With it, you can:</p>
 <ul>
-<li><a href="slides/template_slides.html" target="_blank">test slides</a></li>
+<li>use MCMC algorithms</li>
+<li>use the Autocorrelated Bayesian Sampler model <span class="citation" data-cites="zhu2024AutocorrelatedBayesianSampler">(<a href="#ref-zhu2024AutocorrelatedBayesianSampler" role="doc-biblioref">Zhu et al., 2024</a>)</span></li>
+<li>calculate some useful statistics that help with model inference.</li>
 </ul>
+<p>The documentation to the <code>samplr</code> package lives <a href="https://lucas-castillo.github.io/samplr/">here</a> (with some very useful <a href="https://lucas-castillo.github.io/samplr/articles/">vignettes</a>!). We have also written a manuscript on how to use it and how to fit MCMC models <span class="citation" data-cites="castillo2025SamplrPackageTool">(<a href="#ref-castillo2025SamplrPackageTool" role="doc-biblioref">Castillo et al., 2025</a>)</span>.</p>
+<p>It is an open source package, meaning that you can look at the source code <a href="https://github.com/lucas-castillo/samplr">here</a>.</p>
+<p>If you have any feature suggestions or if you find any bugs, please report them <a href="https://github.com/lucas-castillo/samplr/issues">here</a> (or send Lucas Castillo an email).</p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-castillo2025SamplrPackageTool" class="csl-entry" role="listitem">
+Castillo, L., Li, Y.-X., &amp; Sanborn, A. N. (2025). <em>The samplr package: <span>A</span> tool for modeling human cognition with sampling algorithms</em>. <a href="https://doi.org/10.31234/osf.io/ax8hm_v2">https://doi.org/10.31234/osf.io/ax8hm_v2</a>
+</div>
+<div id="ref-zhu2024AutocorrelatedBayesianSampler" class="csl-entry" role="listitem">
+Zhu, J.-Q., Sundh, J., Spicer, J., Chater, N., &amp; Sanborn, A. N. (2024). The autocorrelated <span>Bayesian</span> sampler: <span>A</span> rational process for probability judgments, estimates, confidence intervals, choices, confidence judgments, and response times. <em>Psychological Review</em>, <em>131</em>(2), 456–493. <a href="https://doi.org/10.1037/rev0000427">https://doi.org/10.1037/rev0000427</a>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
