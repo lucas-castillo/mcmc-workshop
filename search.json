@@ -21,6 +21,181 @@
     "text": "This schedule is still provisional.\n\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
   },
   {
+    "objectID": "slides/2-samplr.html#overview-of-the-package",
+    "href": "slides/2-samplr.html#overview-of-the-package",
+    "title": "The samplr package",
+    "section": "Overview of the package",
+    "text": "Overview of the package\nThe samplr package is an R package available on CRAN. With it, you can:\n\nuse MCMC algorithms\nuse the Autocorrelated Bayesian Sampler model (Zhu et al., 2024)\ncalculate some useful statistics that help with model inference.\n\n\n\n\n\n\n\n\nDocumentation\n\n\nThe package documentation lives at https://lucas-castillo.github.io/samplr/"
+  },
+  {
+    "objectID": "slides/2-samplr.html#prerequisites",
+    "href": "slides/2-samplr.html#prerequisites",
+    "title": "The samplr package",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\n\ninstall.packages(\"samplr\")\n\n\n\n\nlibrary(samplr)"
+  },
+  {
+    "objectID": "slides/2-samplr.html#metropolis-hastings",
+    "href": "slides/2-samplr.html#metropolis-hastings",
+    "title": "The samplr package",
+    "section": "Metropolis Hastings",
+    "text": "Metropolis Hastings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsampler_mh(\n  start = 1,\n  distr_name = \"norm\",\n  distr_params = c(0, 1),\n  sigma_prop = .1,\n  iterations = 100\n)\n\n\n\n\n\n\n\n\n\n\n\nDocumentation\n\n\nYou can access function documentation by prepending a function with ?, i.e. ?sampler_mh"
+  },
+  {
+    "objectID": "slides/2-samplr.html#sampling-from-metropolis-hastings",
+    "href": "slides/2-samplr.html#sampling-from-metropolis-hastings",
+    "title": "The samplr package",
+    "section": "Sampling from Metropolis Hastings",
+    "text": "Sampling from Metropolis Hastings\n\nUse sampler_mh() to generate samples from a Normal distribution \\(\\mu=3; \\sigma^2=5\\)\nSame as above, but with a large proposal width (\\(\\sigma^2_{prop} = 10\\)). How does the acceptance rate change?\nUse sampler_mh() to generate samples from a Beta distribution \\(\\alpha = 4, \\beta = 4\\)"
+  },
+  {
+    "objectID": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-1",
+    "href": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-1",
+    "title": "The samplr package",
+    "section": "Sampling from Metropolis Hastings (my solutions #1)",
+    "text": "Sampling from Metropolis Hastings (my solutions #1)\n\nUse sampler_mh() to generate samples from a Normal distribution \\(\\mu=3; \\sigma^2=5\\)\n\n\n\n\n\nsampler_mh(\n  start = 0, \n  distr_name = \"norm\", \n  distr_params = c(3, sqrt(5))\n)"
+  },
+  {
+    "objectID": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-2",
+    "href": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-2",
+    "title": "The samplr package",
+    "section": "Sampling from Metropolis Hastings (my solutions #2)",
+    "text": "Sampling from Metropolis Hastings (my solutions #2)\nSame as above, but with a large proposal width (\\(\\sigma^2_{prop} = 10\\)). How does the acceptance rate change?\n\n\n\n\nset.seed(1)\nsampler_mh(\n  start = 0, \n  distr_name = \"norm\", \n  distr_params = c(3, sqrt(5)), \n  sigma_prop = 1\n)$`Acceptance Ratio`\n\n[1] 0.8631476\n\n\n\n\n\n\nset.seed(1)\nsampler_mh(\n  start = 0, \n  distr_name = \"norm\", \n  distr_params = c(3, sqrt(5)), \n  sigma_prop = 10\n)$`Acceptance Ratio`\n\n[1] 0.5845552"
+  },
+  {
+    "objectID": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-2-1",
+    "href": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-2-1",
+    "title": "The samplr package",
+    "section": "Sampling from Metropolis Hastings (my solutions #2)",
+    "text": "Sampling from Metropolis Hastings (my solutions #2)"
+  },
+  {
+    "objectID": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-2-2",
+    "href": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-2-2",
+    "title": "The samplr package",
+    "section": "Sampling from Metropolis Hastings (my solutions #2)",
+    "text": "Sampling from Metropolis Hastings (my solutions #2)\n\n\n\\(\\sigma^2_{prop} = .01\\) after 1000 iterations\n\n\n\n\n\n\n\n\n\n\n\\(\\sigma^2_{prop} = 100\\) after 1000 iterations"
+  },
+  {
+    "objectID": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-3",
+    "href": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-3",
+    "title": "The samplr package",
+    "section": "Sampling from Metropolis Hastings (my solutions #3)",
+    "text": "Sampling from Metropolis Hastings (my solutions #3)\nUse sampler_mh() to generate samples from a Beta distribution \\(\\alpha = 4, \\beta = 4\\)\n\n\n\n\nsampler_mh(\n  start = 0, \n  distr_name = \"beta\", \n  distr_params = c(4,4)\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFurther Reading\n\n\n\nSee https://lucas-castillo.github.io/samplr/articles/supported-distributions.html for all supported distributions and their parameters\nSee https://lucas-castillo.github.io/samplr/articles/how-to-sample.html for how to sample from mixture distributions and multivariate distributions."
+  },
+  {
+    "objectID": "slides/2-samplr.html#from-samples-to-responses-anchoring",
+    "href": "slides/2-samplr.html#from-samples-to-responses-anchoring",
+    "title": "The samplr package",
+    "section": "From samples to responses – Anchoring",
+    "text": "From samples to responses – Anchoring\nLieder et al. (2018) use MCMC to provide an explanation of anchoring as resource-rational allocation of resources.\n\n\n\nThe anchoring effect\nStrack & Mussweiler (1997)\nHow tall is the Cathedral in Cologne?\n\n\nOne group (high anchor):\n\nIs the cathedral higher than 320m?\nHow tall is the cathedral?\n\nAnother group (low anchor):\n\nIs the cathedral higher than 60m?\nHow tall is the cathedral?\n\n\n\n\nMean answers: \\(\\bar x_{high} = 273;\\bar x_{low} = 89\\)\n\n\n\n\nLieder et al. (2018)\n\nThis is because people adjust the anchor in an MCMC way\nSampling takes effort so after some time they stop (as extra sampling is more costly than estimate improvement)"
+  },
+  {
+    "objectID": "slides/2-samplr.html#from-samples-to-responses-anchoring-1",
+    "href": "slides/2-samplr.html#from-samples-to-responses-anchoring-1",
+    "title": "The samplr package",
+    "section": "From samples to responses – Anchoring",
+    "text": "From samples to responses – Anchoring\n\n\n\nTarget distribution\n\nThe true height of the cathedral is 157m\nProbably very uncertain \\(\\rightarrow \\mathcal N (\\mu=157, \\sigma=30)\\)\nLet’s fix sigma_prop = 20\nStart point is either start=320 or start=60\nMean answers: \\(\\bar x_{high} = 273;\\bar x_{low} = 89\\)\n\n\n\n\nReplicating the effect\n\nMake the last sample the response\nHow many samples are needed to replicate the effect in both groups?\nIs there a situation where response=last sample might not make much sense?"
+  },
+  {
+    "objectID": "slides/2-samplr.html#from-samples-to-responses-anchoring-my-solution",
+    "href": "slides/2-samplr.html#from-samples-to-responses-anchoring-my-solution",
+    "title": "The samplr package",
+    "section": "From samples to responses – Anchoring (my solution)",
+    "text": "From samples to responses – Anchoring (my solution)\n\n\n\n\nset.seed(1)\nstarts &lt;- c(60, 320)\ndistr_name &lt;- \"norm\"\ndistr_params &lt;- c(157, 30)\nsigma_prop &lt;- 20\n\nresponses &lt;- c()\nfor (start in starts){\n  for (n in 1:200){\n    responses &lt;- c(responses, sampler_mh(\n      start, \n      distr_name, \n      distr_params, \n      sigma_prop, \n      iterations = n)$Samples[n,1]\n    )\n  }\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIs there a situation where response=last sample might not make much sense?\n\n\nWhen starting point influence disappears, mean of samples is a better estimate (burn-in)."
+  },
+  {
+    "objectID": "slides/2-samplr.html#sampling-functions",
+    "href": "slides/2-samplr.html#sampling-functions",
+    "title": "The samplr package",
+    "section": "Sampling Functions",
+    "text": "Sampling Functions"
+  },
+  {
+    "objectID": "slides/2-samplr.html#qualitative-features",
+    "href": "slides/2-samplr.html#qualitative-features",
+    "title": "The samplr package",
+    "section": "Qualitative Features",
+    "text": "Qualitative Features\n\n\n\n3 qualitative features\n\n\nTheir inclusion or exclusion makes 8 algorithms in total (\\(2^3\\)).\n\n\nQualitative Features:\n\nMultiple Chains\nGradient-based proposals\nAutocorrelated proposals\n\n\n\n\n\n\n\nIn the next slides…\n\n\n\nOverview of the features\nWhy they might be useful\n\n\n\n\n\n\n\n\n\nFor technical detail\n\n\n\nSee appendix of Castillo et al. (2025)\nSee package reference"
+  },
+  {
+    "objectID": "slides/2-samplr.html#multiple-chains",
+    "href": "slides/2-samplr.html#multiple-chains",
+    "title": "The samplr package",
+    "section": "Multiple Chains",
+    "text": "Multiple Chains\n\n\nThe basic idea\n\nHave more than one chain running at the same time\n\n\nFirst chain (cold chain) exactly like MH\n\n\nOther chains have higher temperature (more likely to accept)\n\n\nSometimes chains swap positions (if the colder of the two is “happy” with the new place)\n\n\nEnd: only consider cold chain. (in the package, take the first slice: samples[,,1])"
+  },
+  {
+    "objectID": "slides/2-samplr.html#gradient-based-proposals",
+    "href": "slides/2-samplr.html#gradient-based-proposals",
+    "title": "The samplr package",
+    "section": "Gradient-based proposals",
+    "text": "Gradient-based proposals\n\n\nThe basic idea\n\nDon’t make “blind” proposals, but base them on the gradient of the target density\n\n\nThis increases acceptance rate without being stuck in a location.\n\n\nAchieved by simulating a physical system with random momentum in each iteration. (simulate \\(L\\) steps of size [precision] \\(\\epsilon\\))"
+  },
+  {
+    "objectID": "slides/2-samplr.html#autocorrelated-proposals",
+    "href": "slides/2-samplr.html#autocorrelated-proposals",
+    "title": "The samplr package",
+    "section": "Autocorrelated proposals",
+    "text": "Autocorrelated proposals\n\n\n\nIn MH,\n\n\\(\\theta^{t'} = \\theta^{t-1} + n; n \\sim \\mathcal N (0, \\sigma)\\)\n\nIn Gradient-based proposals:\n\n\\(\\rho \\sim \\mathcal N (0, 1)\\)\n\n\n\nThis can lead to random-walk behaviour which is inefficient sometimes\n\n\nInstead, recycle the previous jump to get a sense of trajectory."
+  },
+  {
+    "objectID": "slides/2-samplr.html#qualitative-features-1",
+    "href": "slides/2-samplr.html#qualitative-features-1",
+    "title": "The samplr package",
+    "section": "Qualitative Features",
+    "text": "Qualitative Features\n\n\n\n\n\n\n\n\n\nAlgorithm\nM. Chains\nGradients\nAutoc. Proposals\n\n\n\n\nMetropolis Hastings (MH) (Hastings, 1970)\n❌\n❌\n❌\n\n\nMetropolis-coupled MCMC (MC\\(^3\\)) (Geyer, 1991)\n✅\n❌\n❌\n\n\nHamiltonian Monte Carlo (HMC) (Neal, 2011)\n❌\n✅\n❌\n\n\nMH_ac*\n❌\n❌\n✅\n\n\nMCHMC\n✅\n✅\n❌\n\n\nMC3_ac*\n✅\n❌\n✅\n\n\nREC\n❌\n✅\n✅\n\n\nMCREC\n✅\n✅\n✅\n\n\n\n\n\\(^*\\) Set alpha!=0 in sampler_mh() and sampler_mc3() functions"
+  },
+  {
+    "objectID": "slides/2-samplr.html#practice",
+    "href": "slides/2-samplr.html#practice",
+    "title": "The samplr package",
+    "section": "Practice",
+    "text": "Practice\nConsider the distribution\n\n\n\nset.seed(1)\nn &lt;- 5\nnames &lt;- rep(\"mvnorm\", n)\nparameters &lt;- list()\nfor (i in 1:n){\n  parameters[[i]] &lt;- list(\n    runif(2) * 18 - 9, \n    diag(2)\n  )\n}\nweights &lt;- runif(n);\nweights &lt;- weights / sum(weights)\n\n\n\n\n\n\n\n\n\n\n\n\n\nChoose an algorithm other than MH and draw samples from the distribution."
+  },
+  {
+    "objectID": "slides/2-samplr.html#my-answer",
+    "href": "slides/2-samplr.html#my-answer",
+    "title": "The samplr package",
+    "section": "My answer",
+    "text": "My answer\n\n\n\nsampler_*(\n  start = c(1,1), \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights\n)\n\n\n\nsampler_mc3(\n  start = c(1,1), \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights, \n  sigma_prop = diag(2),\n  nChains = 6\n)$Samples[,,1]\n\n\n\n\n\nsampler_hmc(\n  start = c(1,1), \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights,\n  epsilon = .1, L = 10\n)$Samples\n\n\n\n\nsampler_mcrec(\n  start = c(1,1), \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights,\n  epsilon = .1, L = 10,\n  alpha = .5\n)$Samples[,,1]"
+  },
+  {
+    "objectID": "slides/2-samplr.html#references",
+    "href": "slides/2-samplr.html#references",
+    "title": "The samplr package",
+    "section": "References",
+    "text": "References\n\n\nCastillo, L., Li, Y.-X., & Sanborn, A. N. (2025). The samplr package: A tool for modeling human cognition with sampling algorithms. https://doi.org/10.31234/osf.io/ax8hm_v2\n\n\nGeyer, C. J. (1991). Markov Chain Monte Carlo Maximum Likelihood. Proc. 23rd Symposium on the Interface Interface Foundation, Fairfax Station, 1991, 156–163.\n\n\nHastings, W. K. (1970). Monte Carlo sampling methods using Markov chains and their applications. Biometrika, 57(1), 97–109. https://doi.org/10.1093/biomet/57.1.97\n\n\nLieder, F., Griffiths, T. L., M. Huys, Q. J., & Goodman, N. D. (2018). The anchoring bias reflects rational use of cognitive resources. Psychonomic Bulletin & Review, 25(1), 322–349. https://doi.org/10.3758/s13423-017-1286-8\n\n\nNeal, R. M. (2011). MCMC Using Hamiltonian Dynamics. In S. Brooks, A. Gelman, G. Jones, & X.-L. Meng (Eds.), Handbook of Markov Chain Monte Carlo (1st ed., pp. 113–162). Chapman and Hall/CRC. https://doi.org/10.1201/b10905\n\n\nStrack, F., & Mussweiler, T. (1997). Explaining the enigmatic anchoring effect: Mechanisms of selective accessibility. Journal of Personality and Social Psychology, 73(3), 437–446. https://doi.org/10.1037/0022-3514.73.3.437\n\n\nZhu, J.-Q., Sundh, J., Spicer, J., Chater, N., & Sanborn, A. N. (2024). The autocorrelated Bayesian sampler: A rational process for probability judgments, estimates, confidence intervals, choices, confidence judgments, and response times. Psychological Review, 131(2), 456–493. https://doi.org/10.1037/rev0000427"
+  },
+  {
+    "objectID": "slides/1-intro.html#about-the-workshop",
+    "href": "slides/1-intro.html#about-the-workshop",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nWebsite\n\n\nhttps://lucas-castillo.github.io/mcmc-workshop/\n\nMaterials\nSchedule\netc."
+  },
+  {
+    "objectID": "slides/1-intro.html#about-the-workshop-1",
+    "href": "slides/1-intro.html#about-the-workshop-1",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nSchedule\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
+  },
+  {
+    "objectID": "slides/1-intro.html#about-the-workshop-2",
+    "href": "slides/1-intro.html#about-the-workshop-2",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nPeople\n\n\nOrganisers\n\n\n\n\n\n\n\nDr. Lucas Castillo\n\n\n\nDr. C. Stella Qian\n\n\n\nProf. Adam Sanborn\n\n\n\n\n\nGuest Speakers\n\n\n\n\n\n\n\nDr. Jake Spicer"
+  },
+  {
+    "objectID": "requirements.html",
+    "href": "requirements.html",
+    "title": "Workshop Prerequisites",
+    "section": "",
+    "text": "Before the workshop, please install the R programming language in your machine. An IDE such as RStudio is recommended but not necessary.\nThe workshop will make use of the following packages: samplr, samplrData, abc; which you install by running:\ninstall.packages(c(\"samplr\", \"samplrData\", \"abc\"))\non your R console.\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
+  },
+  {
     "objectID": "slides/template_slides.html#this-is-a-test-slide",
     "href": "slides/template_slides.html#this-is-a-test-slide",
     "title": "Presentation title",
@@ -61,13 +236,6 @@
     "title": "Presentation title",
     "section": "Fancy math",
     "text": "Fancy math\n\\[\np(H|D) = \\frac{%\n    \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(D|H)P(H)}}\n    }{%\n      \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(B)}}\n}\n\\]"
-  },
-  {
-    "objectID": "requirements.html",
-    "href": "requirements.html",
-    "title": "Workshop Prerequisites",
-    "section": "",
-    "text": "Before the workshop, please install the R programming language in your machine. An IDE such as RStudio is recommended but not necessary.\nThe workshop will make use of the following packages: samplr, samplrData, abc; which you install by running:\ninstall.packages(c(\"samplr\", \"samplrData\", \"abc\"))\non your R console.\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
   },
   {
     "objectID": "organisers.html",
