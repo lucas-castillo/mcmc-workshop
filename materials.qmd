@@ -5,7 +5,8 @@ Workshop materials and slides will be posted here closer to the date.
 
 ## Slides
 
-## Workshop Description
+- [Introduction to the workshop](slides/1-intro.html){target="_blank"}
+- [The `samplr` package](slides/2-samplr.html){target="_blank"}
 
 ## Documentation to the `samplr` package
 The `samplr` package is an R package available on [CRAN](https://cran.r-project.org/web/packages/samplr/index.html).
