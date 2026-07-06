@@ -1,9 +1,10 @@
 ---
-title: "Organisers"
+title: "People"
 sidebar: 
 ---
-
+## Organisers
 ### Lucas Castillo
+
 :::{.columns style="margin-bottom:50px"}
 :::{.column-margin}
 ![](files/people/lucas.jpeg){width=200 style="border-radius:100%"}
