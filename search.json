@@ -21,6 +21,90 @@
     "text": "This schedule is still provisional.\n\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
   },
   {
+    "objectID": "slides/template_slides.html#this-is-a-test-slide",
+    "href": "slides/template_slides.html#this-is-a-test-slide",
+    "title": "Presentation title",
+    "section": "This is a test slide",
+    "text": "This is a test slide\nwith some text"
+  },
+  {
+    "objectID": "slides/template_slides.html#this-is-another-slide",
+    "href": "slides/template_slides.html#this-is-another-slide",
+    "title": "Presentation title",
+    "section": "This is another slide",
+    "text": "This is another slide\nwith some more text"
+  },
+  {
+    "objectID": "slides/template_slides.html#code-slide",
+    "href": "slides/template_slides.html#code-slide",
+    "title": "Presentation title",
+    "section": "Code Slide",
+    "text": "Code Slide\n\n\n\nx &lt;- c(1, 2, 3, 4, 5)\nmean(x)\n\n\n\n\n[1] 3"
+  },
+  {
+    "objectID": "slides/template_slides.html#code-2",
+    "href": "slides/template_slides.html#code-2",
+    "title": "Presentation title",
+    "section": "Code 2",
+    "text": "Code 2\n\nx &lt;- c(1, 2, 3, 4, 5)\nmean(x)"
+  },
+  {
+    "objectID": "slides/template_slides.html#snippets",
+    "href": "slides/template_slides.html#snippets",
+    "title": "Presentation title",
+    "section": "Snippets",
+    "text": "Snippets\nI’ve defined the following snippets\n\ntf for text flourish\ncf for code flourish\n:: for quarto div\ncol for 2-column environment"
+  },
+  {
+    "objectID": "slides/template_slides.html#fancy-math",
+    "href": "slides/template_slides.html#fancy-math",
+    "title": "Presentation title",
+    "section": "Fancy math",
+    "text": "Fancy math\n\\[\np(H|D) = \\frac{%\n    \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(D|H)P(H)}}\n    }{%\n      \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(B)}}\n}\n\\]"
+  },
+  {
+    "objectID": "requirements.html",
+    "href": "requirements.html",
+    "title": "Workshop Prerequisites",
+    "section": "",
+    "text": "Before the workshop, please install the R programming language in your machine. An IDE such as RStudio is recommended but not necessary.\nThe workshop will make use of the following packages: samplr, samplrData, abc; which you install by running:\ninstall.packages(c(\"samplr\", \"samplrData\", \"abc\"))\non your R console.\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
+  },
+  {
+    "objectID": "people.html",
+    "href": "people.html",
+    "title": "People",
+    "section": "",
+    "text": "Lucas is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling. He is the lead developer of the samplr package.\n\n\n\n\n\n\n\nStella is an interdisciplinary researcher incorporating her expertise on vision psychophysics, especially bistable perception and eye movements, with behavioural science and computer science. Currently, she works on developing an experimental paradigm to capture perceptual and decision making features that we can test different computational models on.\n\n\n\n\n\n\n\nAdam Sanborn is a Professor of Psychology at the University of Warwick. Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, sampling approximations to Bayesian models, and behavioural experiments."
+  },
+  {
+    "objectID": "people.html#organisers",
+    "href": "people.html#organisers",
+    "title": "People",
+    "section": "",
+    "text": "Lucas is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling. He is the lead developer of the samplr package.\n\n\n\n\n\n\n\nStella is an interdisciplinary researcher incorporating her expertise on vision psychophysics, especially bistable perception and eye movements, with behavioural science and computer science. Currently, she works on developing an experimental paradigm to capture perceptual and decision making features that we can test different computational models on.\n\n\n\n\n\n\n\nAdam Sanborn is a Professor of Psychology at the University of Warwick. Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, sampling approximations to Bayesian models, and behavioural experiments."
+  },
+  {
+    "objectID": "slides/1-intro.html#about-the-workshop",
+    "href": "slides/1-intro.html#about-the-workshop",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nWebsite\n\n\nhttps://lucas-castillo.github.io/mcmc-workshop/\n\nMaterials\nSchedule\netc."
+  },
+  {
+    "objectID": "slides/1-intro.html#about-the-workshop-1",
+    "href": "slides/1-intro.html#about-the-workshop-1",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nSchedule\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
+  },
+  {
+    "objectID": "slides/1-intro.html#about-the-workshop-2",
+    "href": "slides/1-intro.html#about-the-workshop-2",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nPeople\n\n\nOrganisers\n\n\n\n\n\n\n\nDr. Lucas Castillo\n\n\n\nDr. C. Stella Qian\n\n\n\nProf. Adam Sanborn\n\n\n\n\n\nGuest Speakers\n\n\n\n\n\n\n\nDr. Jake Spicer"
+  },
+  {
     "objectID": "slides/2-samplr.html#overview-of-the-package",
     "href": "slides/2-samplr.html#overview-of-the-package",
     "title": "The samplr package",
@@ -166,83 +250,6 @@
     "title": "The samplr package",
     "section": "References",
     "text": "References\n\n\nCastillo, L., Li, Y.-X., & Sanborn, A. N. (2025). The samplr package: A tool for modeling human cognition with sampling algorithms. https://doi.org/10.31234/osf.io/ax8hm_v2\n\n\nGeyer, C. J. (1991). Markov Chain Monte Carlo Maximum Likelihood. Proc. 23rd Symposium on the Interface Interface Foundation, Fairfax Station, 1991, 156–163.\n\n\nHastings, W. K. (1970). Monte Carlo sampling methods using Markov chains and their applications. Biometrika, 57(1), 97–109. https://doi.org/10.1093/biomet/57.1.97\n\n\nLieder, F., Griffiths, T. L., M. Huys, Q. J., & Goodman, N. D. (2018). The anchoring bias reflects rational use of cognitive resources. Psychonomic Bulletin & Review, 25(1), 322–349. https://doi.org/10.3758/s13423-017-1286-8\n\n\nNeal, R. M. (2011). MCMC Using Hamiltonian Dynamics. In S. Brooks, A. Gelman, G. Jones, & X.-L. Meng (Eds.), Handbook of Markov Chain Monte Carlo (1st ed., pp. 113–162). Chapman and Hall/CRC. https://doi.org/10.1201/b10905\n\n\nStrack, F., & Mussweiler, T. (1997). Explaining the enigmatic anchoring effect: Mechanisms of selective accessibility. Journal of Personality and Social Psychology, 73(3), 437–446. https://doi.org/10.1037/0022-3514.73.3.437\n\n\nZhu, J.-Q., Sundh, J., Spicer, J., Chater, N., & Sanborn, A. N. (2024). The autocorrelated Bayesian sampler: A rational process for probability judgments, estimates, confidence intervals, choices, confidence judgments, and response times. Psychological Review, 131(2), 456–493. https://doi.org/10.1037/rev0000427"
-  },
-  {
-    "objectID": "slides/1-intro.html#about-the-workshop",
-    "href": "slides/1-intro.html#about-the-workshop",
-    "title": "Autocorrelated Sampling in Cognition",
-    "section": "About the workshop",
-    "text": "About the workshop\nWebsite\n\n\nhttps://lucas-castillo.github.io/mcmc-workshop/\n\nMaterials\nSchedule\netc."
-  },
-  {
-    "objectID": "slides/1-intro.html#about-the-workshop-1",
-    "href": "slides/1-intro.html#about-the-workshop-1",
-    "title": "Autocorrelated Sampling in Cognition",
-    "section": "About the workshop",
-    "text": "About the workshop\nSchedule\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
-  },
-  {
-    "objectID": "slides/1-intro.html#about-the-workshop-2",
-    "href": "slides/1-intro.html#about-the-workshop-2",
-    "title": "Autocorrelated Sampling in Cognition",
-    "section": "About the workshop",
-    "text": "About the workshop\nPeople\n\n\nOrganisers\n\n\n\n\n\n\n\nDr. Lucas Castillo\n\n\n\nDr. C. Stella Qian\n\n\n\nProf. Adam Sanborn\n\n\n\n\n\nGuest Speakers\n\n\n\n\n\n\n\nDr. Jake Spicer"
-  },
-  {
-    "objectID": "requirements.html",
-    "href": "requirements.html",
-    "title": "Workshop Prerequisites",
-    "section": "",
-    "text": "Before the workshop, please install the R programming language in your machine. An IDE such as RStudio is recommended but not necessary.\nThe workshop will make use of the following packages: samplr, samplrData, abc; which you install by running:\ninstall.packages(c(\"samplr\", \"samplrData\", \"abc\"))\non your R console.\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
-  },
-  {
-    "objectID": "slides/template_slides.html#this-is-a-test-slide",
-    "href": "slides/template_slides.html#this-is-a-test-slide",
-    "title": "Presentation title",
-    "section": "This is a test slide",
-    "text": "This is a test slide\nwith some text"
-  },
-  {
-    "objectID": "slides/template_slides.html#this-is-another-slide",
-    "href": "slides/template_slides.html#this-is-another-slide",
-    "title": "Presentation title",
-    "section": "This is another slide",
-    "text": "This is another slide\nwith some more text"
-  },
-  {
-    "objectID": "slides/template_slides.html#code-slide",
-    "href": "slides/template_slides.html#code-slide",
-    "title": "Presentation title",
-    "section": "Code Slide",
-    "text": "Code Slide\n\n\n\nx &lt;- c(1, 2, 3, 4, 5)\nmean(x)\n\n\n\n\n[1] 3"
-  },
-  {
-    "objectID": "slides/template_slides.html#code-2",
-    "href": "slides/template_slides.html#code-2",
-    "title": "Presentation title",
-    "section": "Code 2",
-    "text": "Code 2\n\nx &lt;- c(1, 2, 3, 4, 5)\nmean(x)"
-  },
-  {
-    "objectID": "slides/template_slides.html#snippets",
-    "href": "slides/template_slides.html#snippets",
-    "title": "Presentation title",
-    "section": "Snippets",
-    "text": "Snippets\nI’ve defined the following snippets\n\ntf for text flourish\ncf for code flourish\n:: for quarto div\ncol for 2-column environment"
-  },
-  {
-    "objectID": "slides/template_slides.html#fancy-math",
-    "href": "slides/template_slides.html#fancy-math",
-    "title": "Presentation title",
-    "section": "Fancy math",
-    "text": "Fancy math\n\\[\np(H|D) = \\frac{%\n    \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(D|H)P(H)}}\n    }{%\n      \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(B)}}\n}\n\\]"
-  },
-  {
-    "objectID": "organisers.html",
-    "href": "organisers.html",
-    "title": "Organisers",
-    "section": "",
-    "text": "Lucas Castillo\n\n\n\nLucas is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling. He is the lead developer of the samplr package.\n\n\n\nC. Stella Qian\n\n\n\nStella is an interdisciplinary researcher incorporating her expertise on vision psychophysics, especially bistable perception and eye movements, with behavioural science and computer science. Currently, she works on developing an experimental paradigm to capture perceptual and decision making features that we can test different computational models on.\n\n\n\nAdam N. Sanborn\n\n\n\nAdam Sanborn is a Professor of Psychology at the University of Warwick. Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, sampling approximations to Bayesian models, and behavioural experiments."
   },
   {
     "objectID": "materials.html",
