@@ -21,6 +21,160 @@
     "text": "This schedule is still provisional.\n\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
   },
   {
+    "objectID": "slides/3-abs.html#anchoring-example",
+    "href": "slides/3-abs.html#anchoring-example",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "Anchoring example",
+    "text": "Anchoring example\n\n\n\n\n\n\n\n\n\nABS"
+  },
+  {
+    "objectID": "slides/3-abs.html#many-response-modes",
+    "href": "slides/3-abs.html#many-response-modes",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "Many response modes",
+    "text": "Many response modes\n\n\nAlso gives reaction time.\n\n\nFigure adapted from Zhu et al. (2024)"
+  },
+  {
+    "objectID": "slides/3-abs.html#object-oriented-programming",
+    "href": "slides/3-abs.html#object-oriented-programming",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "Object-Oriented Programming",
+    "text": "Object-Oriented Programming\n\n\nMake a new instance of the model\n\n\nmyModel &lt;- Zhu23ABS$new(...)\n\n\n\n\nSample from the model\n\n\nmyModel$simulate(...)\n\n\n\n\nLook at results\n\n\nmyModel$sim_results"
+  },
+  {
+    "objectID": "slides/3-abs.html#making-a-new-instance-with-new",
+    "href": "slides/3-abs.html#making-a-new-instance-with-new",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "Making a new instance with $new()",
+    "text": "Making a new instance with $new()\n\n\n\nABS uses MC3 as the MCMC sampler (MH + Multiple Chains)\n\n\nTarget distribution is Gaussian, centred at the stimulus mean.\n\n\nParameters:\n\nwidth: Width of proposal distribution\nn_chains: Number of Chains\ndistr_name: Must be \"norm\"\ndistr_params: Width of the posterior distribution.\n\n\n\nThe decision time for a trial will be \\(t \\sim \\text{Erlang}(N, \\lambda) + n.d.t.\\)\n\n\n\\(n.d.t.\\) either fixed (when s_nd_time = 0) or variable (\\(n.d.t. \\sim \\mathcal U (nd, nd+s\\_nd)\\).\n\n\nlambda: Parameter in Erlang distribution\nnd_time\ns_nd_time\n\n\n\n\nmyModel &lt;- Zhu23ABS$new(\n  width = 25, \n  n_chains = 6, \n  distr_name = \"norm\", \n  distr_params = 30, \n  lambda = 4, \n  nd_time = 1, \n  s_nd_time = 0\n)"
+  },
+  {
+    "objectID": "slides/3-abs.html#simulating-results-with-simulate",
+    "href": "slides/3-abs.html#simulating-results-with-simulate",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "Simulating results with $simulate()",
+    "text": "Simulating results with $simulate()\n\n\n\nFor now, set stopping rule to “fixed” (I’ll explain this later!)\nSample \\(N\\) samples\ntrial_stim: Mean of the stimulus (in our example 24 - we can add multiple trials)\n\n\n\n\nmyModel$simulate(\n  stopping_rule = \"fixed\", \n  n_sample=4, \n  trial_stim=c(24, 22, 27)\n)"
+  },
+  {
+    "objectID": "slides/3-abs.html#results",
+    "href": "slides/3-abs.html#results",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "Results",
+    "text": "Results\n\nExamining results\n\nprint(myModel$sim_results)\n\n  trial                   samples stimulus   rt point_est\n1     1 5.21, -2.49, 11.87, -2.49       24 1.77     -2.49\n2     2   4.72, 0.57, 17.19, 7.81       22  1.7      7.81\n3     3 17.53, 6.37, 14.93, 30.69       27 2.39     30.69\n\n\n\n\nAdding confidence intervals\n\nmyModel$confidence_interval(conf_level = .75)\n\n\n\n  trial samples stimulus   rt point_est  ci_l  ci_u\n1     1     ...       24 1.77     -2.49 -2.49  9.37\n2     2     ...       22  1.7      7.81  2.13 13.67\n3     3     ...       27 2.39     30.69  9.58 25.76"
+  },
+  {
+    "objectID": "slides/3-abs.html#practice",
+    "href": "slides/3-abs.html#practice",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "Practice",
+    "text": "Practice\n\n\nMake ABS estimate the height of the Cologne cathedral with an anchor of 320m (the correct height is 127m).\n\nHow long does it take, when \\(\\lambda = 4\\) and \\(N_{samples} = 10\\)?\nWhat is the 80% confidence interval?\n\n\n\nEstimate: 300\n80% Confidence interval: 300-315\nRT: 4.33s\n\n\n\n\n\nmodel &lt;- Zhu23ABS$new(\n  width = 25, \n  n_chains = 6, \n  distr_name = \"norm\", \n  distr_params = 30, \n  lambda = 4, \n  nd_time = 1, \n  s_nd_time = 0\n)\nmodel$simulate(\n  stopping_rule = \"fixed\", \n  start_point = 320, \n  n_sample=10, \n  trial_stim = 127\n)\nmodel$confidence_interval(.8)\nmodel$sim_results"
+  },
+  {
+    "objectID": "slides/3-abs.html#relative-stopping-rule",
+    "href": "slides/3-abs.html#relative-stopping-rule",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "“Relative” Stopping Rule",
+    "text": "“Relative” Stopping Rule"
+  },
+  {
+    "objectID": "slides/3-abs.html#simulate-with-a-relative-stopping-rule",
+    "href": "slides/3-abs.html#simulate-with-a-relative-stopping-rule",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "$simulate() with a relative stopping rule",
+    "text": "$simulate() with a relative stopping rule\n\n\n\n2-alternative-forced-choice task (e.g., random dot motion task)\n\n\nModel counts difference in evidence between the two hypotheses and terminates whenever it exceeds a threshold.\n\n\nParameters:\n\ndelta: threshold of the accumulated difference\ndec_bdry: decision boundary that splits the posterior\nprior_on_resp: the prior on responses, which determines the prior preference for a response (Beta).\ndiscrim: discriminabilty, determines the mean values of the distributions for the posterior of hypotheses.\n\n\n\n\n\nmyModel$simulate(\n  stopping_rule = \"relative\", \n  delta = 2, \n  dec_bdry = 0, \n  discrim = 3, \n  prior_on_resp=c(1,1),\n  trial_stim = factor(\n    c(\"left\", \"right\", \"left\"))\n)"
+  },
+  {
+    "objectID": "slides/3-abs.html#practice-1",
+    "href": "slides/3-abs.html#practice-1",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "Practice",
+    "text": "Practice\n\nThe speed-accuracy trade-off states that\n\nif you’re trying to be fast, you’ll be less accurate, and\nif you’re trying to be accurate, you’ll be slower\n\n\n\nConsider a 2AFC task - how can ABS replicate this effect?"
+  },
+  {
+    "objectID": "slides/3-abs.html#my-solution",
+    "href": "slides/3-abs.html#my-solution",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "My solution",
+    "text": "My solution\n\n\n\nSetup\n\nset.seed(1)\nstimuli &lt;- factor(\n  sample(c(\"left\", \"right\"), 100, T)\n)\nmyModel &lt;- Zhu23ABS$new( \n  width = 2, \n  n_chains = 6, \n  distr_name = \"norm\", \n  distr_params = 2, \n  lambda = 4, \n  nd_time = 1, \n  s_nd_time = 0\n)\n\n\n\n\nSlow\n\nslow &lt;- myModel$simulate(\n  stopping_rule = \"relative\", \n  delta = 10, \n  dec_bdry = 0, \n  discrim = 3, \n  prior_on_resp=c(1,1),\n  trial_stim = stimuli\n)$sim_results\n\n\n\nFast\n\nmyModel$reset_sim_results()\nfast &lt;- myModel$simulate(\n  stopping_rule = \"relative\", \n  delta = 2, \n  dec_bdry = 0, \n  discrim = 3, \n  prior_on_resp=c(1,1),\n  trial_stim = stimuli\n)$sim_results"
+  },
+  {
+    "objectID": "slides/3-abs.html#my-solution-1",
+    "href": "slides/3-abs.html#my-solution-1",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "My solution",
+    "text": "My solution\n\n\n\nmean(fast$rt);\n\n[1] 1.627338\n\nmean(fast$accuracy)\n\n[1] 0.64\n\n\n\n\nmean(slow$rt);\n\n[1] 5.543572\n\nmean(slow$accuracy)\n\n[1] 0.95"
+  },
+  {
+    "objectID": "slides/3-abs.html#part-1-wrap-up-1",
+    "href": "slides/3-abs.html#part-1-wrap-up-1",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "Part 1 Wrap-up",
+    "text": "Part 1 Wrap-up\nSo far\n\nLearned about MCMC and past applications to cognitive modelling\nLearned about how to use the samplr package to:\n\n\nproduce samples from different MCMC algorithms\nproduce responses from the ABS cognitive framework (Zhu et al., 2024)\n\n\nAfter the break\nLearn how to fit these models to data. We need:\n\nsome data!\nsome simulated data from models."
+  },
+  {
+    "objectID": "slides/3-abs.html#experiment",
+    "href": "slides/3-abs.html#experiment",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "Experiment",
+    "text": "Experiment\n\nCastillo et al. (2026) asked participants to say heights of people in the UK at random.\n\n\nPeople are pretty bad at producing random sequences\n\n\nInstead, they show patterns that can be used to identify which MCMC sampler best describes their item production\n\n\nInstructions\n\n\n\n\n\n\n\n\n\nYour task is to say the height of one of the people in the picture, chosen at random, every time you are prompted to do so. To do this, imagine:\n\nShuffling the papers in the bag\nChoosing a random paper from the bag and reading the height.\nReturning the paper to the bag\nRepeating the process"
+  },
+  {
+    "objectID": "slides/3-abs.html#last-tasks-before-the-break",
+    "href": "slides/3-abs.html#last-tasks-before-the-break",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "Last tasks before the break",
+    "text": "Last tasks before the break\n\n\n\nGetting Data\n\nGo to https://rg-exp.netlify.app/\nAdd a pseudonym (so that you know which is your data!)\nDo a typed random generation task: 150 heights (as described before)\nSend me an email with the .csv results (lucas.castillo@warwick.ac.uk)\n(We’ll share everyone’s data and that’s what we’ll fit in part 2)\n\n\n\n\nSimulating Data\n\nAsk MCMC algorithms to sample from \\(\\mathcal N (\\mu=176.4, \\sigma=12)\\).\nPrior over models is \\(1/N\\).\nPrior over parameters (prior.R in website).\nThe objective is to have a big matrix of simulated data.\n\n\n\n\n\n\n\n\nHelp!\n\n\nIf this is too much:\n\nExample code in website to run directly\nPre-simulated data also in website"
+  },
+  {
+    "objectID": "slides/3-abs.html#references",
+    "href": "slides/3-abs.html#references",
+    "title": "The Autocorrelated Bayesian Sampler",
+    "section": "References",
+    "text": "References\n\n\nCastillo, L., León-Villagrá, P., Falbén, J. K., Chater, N., & Sanborn, A. N. (2026). Random generation is what comes to mind in naturalistic settings. Cognition, 274, 106554. https://doi.org/10.1016/j.cognition.2026.106554\n\n\nZhu, J.-Q., Sundh, J., Spicer, J., Chater, N., & Sanborn, A. N. (2024). The autocorrelated Bayesian sampler: A rational process for probability judgments, estimates, confidence intervals, choices, confidence judgments, and response times. Psychological Review, 131(2), 456–493. https://doi.org/10.1037/rev0000427"
+  },
+  {
+    "objectID": "slides/1-intro.html#about-the-workshop",
+    "href": "slides/1-intro.html#about-the-workshop",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nWebsite\n\n\nhttps://lucas-castillo.github.io/mcmc-workshop/\n\nMaterials\nSchedule\netc."
+  },
+  {
+    "objectID": "slides/1-intro.html#about-the-workshop-1",
+    "href": "slides/1-intro.html#about-the-workshop-1",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nSchedule\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
+  },
+  {
+    "objectID": "slides/1-intro.html#about-the-workshop-2",
+    "href": "slides/1-intro.html#about-the-workshop-2",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nPeople\n\n\nOrganisers\n\n\n\n\n\n\n\nDr. Lucas Castillo\n\n\n\nDr. C. Stella Qian\n\n\n\nProf. Adam Sanborn\n\n\n\n\n\nGuest Speakers\n\n\n\n\n\n\n\nDr. Jake Spicer"
+  },
+  {
+    "objectID": "people.html",
+    "href": "people.html",
+    "title": "People",
+    "section": "",
+    "text": "Lucas is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling. He is the lead developer of the samplr package.\n\n\n\n\n\n\n\nStella is an interdisciplinary researcher incorporating her expertise on vision psychophysics, especially bistable perception and eye movements, with behavioural science and computer science. Currently, she works on developing an experimental paradigm to capture perceptual and decision making features that we can test different computational models on.\n\n\n\n\n\n\n\nAdam Sanborn is a Professor of Psychology at the University of Warwick. Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, sampling approximations to Bayesian models, and behavioural experiments."
+  },
+  {
+    "objectID": "people.html#organisers",
+    "href": "people.html#organisers",
+    "title": "People",
+    "section": "",
+    "text": "Lucas is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling. He is the lead developer of the samplr package.\n\n\n\n\n\n\n\nStella is an interdisciplinary researcher incorporating her expertise on vision psychophysics, especially bistable perception and eye movements, with behavioural science and computer science. Currently, she works on developing an experimental paradigm to capture perceptual and decision making features that we can test different computational models on.\n\n\n\n\n\n\n\nAdam Sanborn is a Professor of Psychology at the University of Warwick. Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, sampling approximations to Bayesian models, and behavioural experiments."
+  },
+  {
+    "objectID": "requirements.html",
+    "href": "requirements.html",
+    "title": "Workshop Prerequisites",
+    "section": "",
+    "text": "Before the workshop, please install the R programming language in your machine. An IDE such as RStudio is recommended but not necessary.\nThe workshop will make use of the following packages: samplr, abc; which you install by running:\ninstall.packages(c(\"samplr\", \"abc\"))\non your R console.\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
+  },
+  {
     "objectID": "slides/template_slides.html#this-is-a-test-slide",
     "href": "slides/template_slides.html#this-is-a-test-slide",
     "title": "Presentation title",
@@ -61,48 +215,6 @@
     "title": "Presentation title",
     "section": "Fancy math",
     "text": "Fancy math\n\\[\np(H|D) = \\frac{%\n    \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(D|H)P(H)}}\n    }{%\n      \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(B)}}\n}\n\\]"
-  },
-  {
-    "objectID": "requirements.html",
-    "href": "requirements.html",
-    "title": "Workshop Prerequisites",
-    "section": "",
-    "text": "Before the workshop, please install the R programming language in your machine. An IDE such as RStudio is recommended but not necessary.\nThe workshop will make use of the following packages: samplr, samplrData, abc; which you install by running:\ninstall.packages(c(\"samplr\", \"samplrData\", \"abc\"))\non your R console.\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
-  },
-  {
-    "objectID": "people.html",
-    "href": "people.html",
-    "title": "People",
-    "section": "",
-    "text": "Lucas is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling. He is the lead developer of the samplr package.\n\n\n\n\n\n\n\nStella is an interdisciplinary researcher incorporating her expertise on vision psychophysics, especially bistable perception and eye movements, with behavioural science and computer science. Currently, she works on developing an experimental paradigm to capture perceptual and decision making features that we can test different computational models on.\n\n\n\n\n\n\n\nAdam Sanborn is a Professor of Psychology at the University of Warwick. Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, sampling approximations to Bayesian models, and behavioural experiments."
-  },
-  {
-    "objectID": "people.html#organisers",
-    "href": "people.html#organisers",
-    "title": "People",
-    "section": "",
-    "text": "Lucas is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling. He is the lead developer of the samplr package.\n\n\n\n\n\n\n\nStella is an interdisciplinary researcher incorporating her expertise on vision psychophysics, especially bistable perception and eye movements, with behavioural science and computer science. Currently, she works on developing an experimental paradigm to capture perceptual and decision making features that we can test different computational models on.\n\n\n\n\n\n\n\nAdam Sanborn is a Professor of Psychology at the University of Warwick. Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, sampling approximations to Bayesian models, and behavioural experiments."
-  },
-  {
-    "objectID": "slides/1-intro.html#about-the-workshop",
-    "href": "slides/1-intro.html#about-the-workshop",
-    "title": "Autocorrelated Sampling in Cognition",
-    "section": "About the workshop",
-    "text": "About the workshop\nWebsite\n\n\nhttps://lucas-castillo.github.io/mcmc-workshop/\n\nMaterials\nSchedule\netc."
-  },
-  {
-    "objectID": "slides/1-intro.html#about-the-workshop-1",
-    "href": "slides/1-intro.html#about-the-workshop-1",
-    "title": "Autocorrelated Sampling in Cognition",
-    "section": "About the workshop",
-    "text": "About the workshop\nSchedule\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
-  },
-  {
-    "objectID": "slides/1-intro.html#about-the-workshop-2",
-    "href": "slides/1-intro.html#about-the-workshop-2",
-    "title": "Autocorrelated Sampling in Cognition",
-    "section": "About the workshop",
-    "text": "About the workshop\nPeople\n\n\nOrganisers\n\n\n\n\n\n\n\nDr. Lucas Castillo\n\n\n\nDr. C. Stella Qian\n\n\n\nProf. Adam Sanborn\n\n\n\n\n\nGuest Speakers\n\n\n\n\n\n\n\nDr. Jake Spicer"
   },
   {
     "objectID": "slides/2-samplr.html#overview-of-the-package",
@@ -228,7 +340,7 @@
     "href": "slides/2-samplr.html#qualitative-features-1",
     "title": "The samplr package",
     "section": "Qualitative Features",
-    "text": "Qualitative Features\n\n\n\n\n\n\n\n\n\nAlgorithm\nM. Chains\nGradients\nAutoc. Proposals\n\n\n\n\nMetropolis Hastings (MH) (Hastings, 1970)\n❌\n❌\n❌\n\n\nMetropolis-coupled MCMC (MC\\(^3\\)) (Geyer, 1991)\n✅\n❌\n❌\n\n\nHamiltonian Monte Carlo (HMC) (Neal, 2011)\n❌\n✅\n❌\n\n\nMH_ac*\n❌\n❌\n✅\n\n\nMCHMC\n✅\n✅\n❌\n\n\nMC3_ac*\n✅\n❌\n✅\n\n\nREC\n❌\n✅\n✅\n\n\nMCREC\n✅\n✅\n✅\n\n\n\n\n\\(^*\\) Set alpha!=0 in sampler_mh() and sampler_mc3() functions"
+    "text": "Qualitative Features\n\n\n\n\n\n\n\n\n\nAlgorithm\nM. Chains\nGradients\nAutoc. Proposals\n\n\n\n\nMetropolis Hastings (MH) (Hastings, 1970)\n❌\n❌\n❌\n\n\nMetropolis-coupled MCMC (MC\\(^3\\)) (Geyer, 1991)\n✅\n❌\n❌\n\n\nHamiltonian Monte Carlo (HMC) (Neal, 2011)\n❌\n✅\n❌\n\n\nRECMH*\n❌\n❌\n✅\n\n\nMCHMC\n✅\n✅\n❌\n\n\nRECMC3*\n✅\n❌\n✅\n\n\nRECHMC\n❌\n✅\n✅\n\n\nMCREC\n✅\n✅\n✅\n\n\n\n\n\\(^*\\) Set alpha!=0 in sampler_mh() and sampler_mc3() functions"
   },
   {
     "objectID": "slides/2-samplr.html#practice",
@@ -263,7 +375,7 @@
     "href": "materials.html#slides",
     "title": "Materials",
     "section": "Slides",
-    "text": "Slides\n\nIntroduction to the workshop\nThe samplr package"
+    "text": "Slides\n\nIntroduction to the workshop\nThe samplr package\nThe Autocorrelated Bayesian Sampler"
   },
   {
     "objectID": "materials.html#documentation-to-the-samplr-package",
