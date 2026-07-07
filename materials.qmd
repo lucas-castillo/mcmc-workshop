@@ -9,6 +9,23 @@ Workshop materials and slides will be posted here closer to the date.
 - [The `samplr` package](slides/2-samplr.html){target="_blank"}
 - [The Autocorrelated Bayesian Sampler](slides/3-abs.html){target="_blank"}
 
+## Useful files
+During the presentation, you will simulate synthetic random generation data. You will need:
+
+- The prior over models and parameters ([download](slides/files_for_attendees/prior.R){download="prior.R"})
+
+::: {.callout-note collapse=true}
+### Some assistance
+You are encouraged to produce your own code that simulates the data. If you want to skip that step, you can use [this file](slides/files_for_attendees/simulate.R){download="simulate.R"}. 
+
+::: {.callout-note collapse=true}
+#### Just give me the data!
+If you just want some simulated data, feel free to use [these simulations](slides/files_for_attendees/simulations.rds){download="simulations.rds"}, which were generated from [these parameters](slides/files_for_attendees/parameters.rds){download="parameters.rds"}.
+
+:::
+
+:::
+
 ## Documentation to the `samplr` package
 The `samplr` package is an R package available on [CRAN](https://cran.r-project.org/web/packages/samplr/index.html).
 With it, you can: 
