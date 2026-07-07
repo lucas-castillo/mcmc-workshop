@@ -378,6 +378,13 @@
     "text": "Slides\n\nIntroduction to the workshop\nThe samplr package\nThe Autocorrelated Bayesian Sampler"
   },
   {
+    "objectID": "materials.html#useful-files",
+    "href": "materials.html#useful-files",
+    "title": "Materials",
+    "section": "Useful files",
+    "text": "Useful files\nDuring the presentation, you will simulate synthetic random generation data. You will need:\n\nThe prior over models and parameters (download)\n\n\n\n\n\n\n\nNoteSome assistance\n\n\n\n\n\nYou are encouraged to produce your own code that simulates the data. If you want to skip that step, you can use this file.\n\n\n\n\n\n\nNoteJust give me the data!\n\n\n\n\n\nIf you just want some simulated data, feel free to use these simulations, which were generated from these parameters."
+  },
+  {
     "objectID": "materials.html#documentation-to-the-samplr-package",
     "href": "materials.html#documentation-to-the-samplr-package",
     "title": "Materials",
