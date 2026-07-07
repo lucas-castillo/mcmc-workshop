@@ -1,8 +1,8 @@
 Before the workshop, please install the [R programming language](https://www.r-project.org/) in your machine. An IDE such as [RStudio](https://posit.co/products/open-source/rstudio) is recommended but not necessary. 
 
-The workshop will make use of the following packages: `samplr`, `samplrData`, `abc`; which you install by running:
+The workshop will make use of the following packages: `samplr`, `abc`; which you install by running:
 ```r
-install.packages(c("samplr", "samplrData", "abc"))
+install.packages(c("samplr", "abc"))
 ```
 on your R console. 
 
