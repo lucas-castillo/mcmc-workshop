@@ -1,8 +1,8 @@
 Before the workshop, please install the [R programming language](https://www.r-project.org/) in your machine. An IDE such as [RStudio](https://posit.co/products/open-source/rstudio) is recommended but not necessary. 
 
-The workshop will make use of the following packages: `samplr`, `abc`; which you install by running:
+The workshop will make use of the following packages for computations: `samplr`, `abc`; and these packages for plotting purposes: `tidyverse`, `patchwork`. You can install them by running:
 ```r
-install.packages(c("samplr", "abc"))
+install.packages(c("samplr", "abc", "tidyverse", "patchwork"))
 ```
 on your R console. 
 
