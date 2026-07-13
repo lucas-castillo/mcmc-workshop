@@ -18,7 +18,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This schedule is still provisional.\n\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
+    "text": "Time\n\n\n\n\n\n08:30 - 09:15\nAn Introduction to MCMC\n\n\n09:15 - 10:00\nThe samplr package\n\n\n10:00 - 10:30\nBreak\n\n\n10:30 - 11:00\nABS: A cognitive model using MCMC\n\n\n11:00 - 11:40\nUsing ABC for simulation-based inference\n\n\n11:40 - 11:55\nFuture Directions and Discussion\n\n\n11:55 - 12:00\nFinal Wrap-Up"
   },
   {
     "objectID": "slides/2-samplr.html#overview-of-the-package",
@@ -210,11 +210,11 @@
     "text": "Fancy math\n\\[\np(H|D) = \\frac{%\n    \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(D|H)P(H)}}\n    }{%\n      \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(B)}}\n}\n\\]"
   },
   {
-    "objectID": "requirements.html",
-    "href": "requirements.html",
-    "title": "Workshop Prerequisites",
+    "objectID": "Glossary.html",
+    "href": "Glossary.html",
+    "title": "Glossary",
     "section": "",
-    "text": "Before the workshop, please install the R programming language in your machine. An IDE such as RStudio is recommended but not necessary.\nThe workshop will make use of the following packages: samplr, abc; which you install by running:\ninstall.packages(c(\"samplr\", \"abc\"))\non your R console.\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
+    "text": "WarningUnder Construction\n\n\n\nThis section is not finalised! Sorry for the inconvenience"
   },
   {
     "objectID": "people.html",
@@ -229,6 +229,20 @@
     "title": "People",
     "section": "",
     "text": "Lucas is interested in how the mind deals with its own resource limitations to achieve behaviour that is rational enough to navigate the world effectively. Using random generation, he has explored which MCMC algorithms best describe human sampling. He is the lead developer of the samplr package.\n\n\n\n\n\n\n\nStella is an interdisciplinary researcher incorporating her expertise on vision psychophysics, especially bistable perception and eye movements, with behavioural science and computer science. Currently, she works on developing an experimental paradigm to capture perceptual and decision making features that we can test different computational models on.\n\n\n\n\n\n\n\nAdam Sanborn is a Professor of Psychology at the University of Warwick. Adam is interested in the rationality of human behaviour, which he studies with Bayesian models, sampling approximations to Bayesian models, and behavioural experiments."
+  },
+  {
+    "objectID": "people.html#guest-speakers",
+    "href": "people.html#guest-speakers",
+    "title": "People",
+    "section": "Guest Speakers",
+    "text": "Guest Speakers\n\nBob Rehder\n\n\n\nBob Rehder is a Professor in the Psychology Department at New York University. His work spans the field of higher order cognition, including topics such as categorization and category learning, causal learning and reasoning, knowledge representation, explanation, skill acquisition, reinforcement learning, and dynamic control. An important strand of his work is mathematical and computational modeling, including the connectionist and probabilistic (a.k.a., rational) models.\n\n\n\nNeil Bramley\n\n\n\nNeil is a Reader in Cognitive Psychology at the University of Edinburgh. He studies how people represent and incrementally revise their causal models of world, plus how they use these models (boundedly and imperfectly) to plan, imagine, explain, blame and solve problems. He generally uses interactive experiments and games combined with computational modelling to investigate these issues. In recent work, Neil is using sequential sampling over programs as a framework for understanding both creative thinking and collective innovation."
+  },
+  {
+    "objectID": "requirements.html",
+    "href": "requirements.html",
+    "title": "Workshop Prerequisites",
+    "section": "",
+    "text": "Before the workshop, please install the R programming language in your machine. An IDE such as RStudio is recommended but not necessary.\nThe workshop will make use of the following packages for computations: samplr, abc; and these packages for plotting purposes: tidyverse, patchwork. You can install them by running:\ninstall.packages(c(\"samplr\", \"abc\", \"tidyverse\", \"patchwork\"))\non your R console.\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
   },
   {
     "objectID": "slides/1-intro.html#about-the-workshop",
@@ -487,21 +501,21 @@
     "href": "materials.html",
     "title": "Materials",
     "section": "",
-    "text": "Workshop materials and slides will be posted here closer to the date."
+    "text": "WarningUnder Construction\n\n\n\nThis section is not finalised! Sorry for the inconvenience"
   },
   {
     "objectID": "materials.html#slides",
     "href": "materials.html#slides",
     "title": "Materials",
     "section": "Slides",
-    "text": "Slides\n\nIntroduction to the workshop\nThe samplr package\nThe Autocorrelated Bayesian Sampler\nApproximate Bayesian Computation (+ Discussion)"
+    "text": "Slides"
   },
   {
     "objectID": "materials.html#useful-files",
     "href": "materials.html#useful-files",
     "title": "Materials",
     "section": "Useful files",
-    "text": "Useful files\nDuring the presentation, you will simulate synthetic random generation data. You will need:\n\nThe prior over models and parameters (download)\n\n\n\n\n\n\n\nNoteSome assistance\n\n\n\n\n\nYou are encouraged to produce your own code that simulates the data. If you want to skip that step, you can use this file.\n\n\n\n\n\n\nNoteJust give me the data!\n\n\n\n\n\nIf you just want some simulated data, feel free to use these simulations, which were generated from these parameters.\n\n\n\n\n\n\nTo turn data into summary statistics, you will need:\n\nThe all_measures() function (download)\n\nYou will also need the attendee data:\n\nIf you attended this workshop on the 9th July, find the participant data here\nIf you attended this workshop on the 22nd July, find the participant data here\n\n\n\n\n\n\n\nNoteSummaries\n\n\n\n\n\nIf you need them, you can find the summaries for simulated data here\nSummaries for observed data:\n\n9th July data (here)\n22nd July data (here)"
+    "text": "Useful files"
   },
   {
     "objectID": "materials.html#documentation-to-the-samplr-package",
