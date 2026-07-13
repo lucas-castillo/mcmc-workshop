@@ -1,11 +1,7 @@
 ---
 title: "Materials"
 ---
-::: {.callout-warning}
-## Under Construction
-This section is not finalised!
-:::
-
+{{< include _in-progress.qmd >}}
 
 ## Slides
 
