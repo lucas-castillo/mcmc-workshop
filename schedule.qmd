@@ -1,18 +1,12 @@
 ---
 title: "Schedule"
 ---
-This schedule is still provisional. 
-
-<!-- Subtract 2.5h for Brazil Time -->
-
 | Time |  |
 | -------- | ------- |
-| 11.05 - 11.45  | An Introduction to MCMC |
-| 11.45 - 12.40 | The `samplr` package |
-| 12.40 -  13:10 | ABS: A cognitive model using MCMC |
-| 13:10 -  13:25 | Part 1 Wrap-Up |
-| 13:25 - 13:55 | Break |
-| 13:55 - 14:25 | Using ABC for simulation-based inference |
-| 14:25 - 14:35 | Further reading on SBI |
-| 14:35 - 14:55 | Future Directions |
-| 14:55 - 15:00 | Final Wrap-Up |
+| 08:30 - 09:15  | An Introduction to MCMC |
+| 09:15 - 10:00 | The `samplr` package |
+| 10:00 - 10:30 | **Break** |
+| 10:30 -  11:00 | ABS: A cognitive model using MCMC |
+| 11:00 - 11:40 | Using ABC for simulation-based inference |
+| 11:40 - 11:55 | Future Directions and Discussion |
+| 11:55 - 12:00 | Final Wrap-Up |
