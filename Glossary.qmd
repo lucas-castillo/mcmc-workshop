@@ -3,4 +3,94 @@ title: "Glossary"
 format: html
 ---
 
-{{< include _in-progress.qmd >}}
+Acceptance Ratio
+:   The proportion of proposals that are added to the chain in the acceptance step. For a Gaussian target, the optimal ratio is 0.234. 
+
+Approximate Bayesian Computation (ABC)
+:   A likelihood-free method for inference: data are simulated with parameters chosen with the prior, and simulations too dissimilar to the observed data are discarded [@turner2012TutorialApproximateBayesian;@sisson2019HandbookApproximateBayesian]. In the workshop we used the `abc` package [@csillery2012AbcPackageApproximate].
+
+Autocorrelated Bayesian Sampler (ABS)
+:   A model in which judgements come from autocorrelated MCMC samples rather than independent ones, giving a single account of probability judgements, estimates, choices, confidence judgements, confidence intervals, and response times [@zhu2024AutocorrelatedBayesianSampler].
+
+Anchoring
+:   Psychological phenomenon by which estimates are pulled towards values seen before them, even if these cues are irrelevant [@strack1997ExplainingEnigmaticAnchoring;@tversky1974JudgmentUncertaintyHeuristics]. In sampling accounts this is explained by the MCMC chain starting from the cued value and few samples being drawn [@lieder2018AnchoringBiasReflects]. If co-occurs with its opposite, repulsion [@spicer2022PerceptualCognitiveJudgments].
+
+Autocorrelated Proposals
+:   One of the qualitative features that compose the available MCMC algorithms in the `samplr` package, which can be used to avoid random-walk behaviour. See [RECHMC](#RECHMC)
+
+Autocorrelation
+:   When each sample (or response) resembles the ones before it rather than being independent. A key property of MCMC is that its samples will be autocorrelated [@brooks2011HandbookMarkovChain].
+
+Bayesian inference
+:   Combining a prior (existing expectations or biases) with a likelihood (from the incoming stimulus) to obtain a posterior (the resulting perception or judgment), via Bayes' rule. Computing it exactly is usually intractable, which is what motivates sampling.
+
+Drift Diffusion Model (DDM)
+:   Models a choice and its response time as noisy evidence accumulating like a biased random walk until it crosses a decision threshold [@ratcliff2016DiffusionDecisionModel;@ratcliff1998ModelingResponseTimes].
+
+<!-- Decision by Sampling -->
+<!-- :   An account in which an item's value is judged from its rank among samples drawn from memory or the environment, through binary comparisons (Stewart, Chater, & Brown, 2006) — sampling *the world*, not an internal posterior. -->
+
+Erlang distribution
+:   The distribution of the sum of $k$ independent exponential variables, with mean $1/\lambda$ each. In ABS, the response time is made of some non-decision time plus a value from an Erlang decision where $k$ is the number of samples drawn to make the decision [@zhu2024AutocorrelatedBayesianSampler].
+
+Gradient-based proposals. 
+:   One of the qualitative features that compose the available MCMC algorithms in the `samplr` package, which can be used to make more efficient proposals. See [HMC](#HMC)
+
+[Hamiltonian Monte Carlo (HMC)]{id="HMC"}
+:   MCMC algorithm that uses the gradient of the distribution to make efficient proposals [@neal2011MCMCUsingHamiltonian;@betancourt2018ConceptualIntroductionHamiltonian].
+
+<!-- Information sampling -->
+<!-- :   Sampling from the environment or experience, where bias in *what gets sampled* from the world drives the effect (e.g. hot-stove effects; Fiedler, Juslin, & Denrell, 2023) — contrast with sampling from an internal posterior. -->
+
+<!-- Local sampling -->
+<!-- :   Sampling in which the next sample depends on the current one (a sense of "location"), making samples autocorrelated; needed to explain probabilistic biases and central to **MCMC** (Dasgupta et al., 2017; Zhu et al., 2022). Contrast *direct sampling*, which draws independent samples (Vul et al., 2014). -->
+
+Markov chain Monte Carlo (MCMC)
+:   An autocorrelated sampling approach that can sample from a difficult posterior via a biased random walk, visiting each region as often as its probability warrants [@brooks2011HandbookMarkovChain].
+
+[Metropolis-coupled MCMC (MC³)]{id="MC3"}
+:   This MCMC algorithm runs several chains at different temperatures at once and lets them swap, so the cold chain borrows exploration from the hot ones; the sampler used in the ABS [@geyer1991MarkovChainMonte].
+
+Metropolis–Hastings (MH)
+:   The basic MCMC algorithm: in each iteration a move is proposed, then accepted or rejected based on its density. When a proposal is rejected, the previous sample is added to the chain. 
+
+Multiple Chains
+:   One of the qualitative features that compose the available MCMC algorithms in the `samplr` package, which can be used to tackle multimodality. See [MC$^3$](#MC3)
+
+Proposal width
+:   In the typical implementation of MH and MC³, proposals are made by adding random normal noise to the previous sample. This refers to the width of the normal distribution that generates proposals. When this is small, exploration is slow; when it is large the acceptance ratio decreases.
+
+[Recycled Hamiltonian Monte Carlo (RECHMC)]{id="RECHMC"}
+:   To avoid random-walk behaviour, instead the momentum parameter in HMC is "recycled", so that successive momentum parameters are autocorrelated [@horowitz1991GeneralizedGuidedMonte]. This gives the sampler a sense of trajectory over multiple iterations. 
+
+Repulsion
+:   The opposite of anchoring: an estimate is pushed away from a nearby preceding value, as often seen in perceptual tasks. Sampling accounts capture anchoring and repulsion together [@spicer2022PerceptualCognitiveJudgments].
+
+Resource rationality
+:   The idea that cognition makes optimal use of limited resources; e.g. relying on only a few samples is rational once the cost of sampling is counted [@vul2014OneDoneOptimal, @lieder2020ResourcerationalAnalysisUnderstanding].
+
+
+`samplr`
+:   The R package introduced in this workshop, implementing these sampling algorithms as cognitive models [@castillo2025SamplrPackageTool].
+
+Speed–accuracy trade-off
+:   Responding faster lowers accuracy and vice versa; in accumulation models this is set by the decision threshold [@ratcliff1998ModelingResponseTimes].
+
+Temperature (in modeling)
+:   How flat or peaked a chain treats the distribution. Hot chains roam; cold chains hug the posterior; in MC³ different chains run at different temperatures [@geyer1991MarkovChainMonte].
+
+
+
+## Sampling algorithms and their qualitative features
+|Algorithm|`samplr` function|M. Chains|Gradients|Autoc. Proposals
+|---|--|-|-|-|
+| Metropolis Hastings (MH) [@hastings1970MonteCarloSampling]| `sampler_mh()` | ❌   | ❌   | ❌   |
+| Metropolis-coupled MCMC (MC$^3$) [@geyer1991MarkovChainMonte] | `sampler_mc3()` | ✅   | ❌   | ❌   |
+| Hamiltonian Monte Carlo (HMC) [@neal2011MCMCUsingHamiltonian] | `sampler_hmc()` | ❌   | ✅   | ❌   |
+| RECMH*                   | `sampler_mh(alpha=)` | ❌   | ❌   | ✅   |
+| MCHMC                    | `sampler_mchmc()` | ✅   | ✅   | ❌   |
+| RECMC3*                  |`sampler_mc3(alpha=)` |  ✅   | ❌   | ✅   |
+| RECHMC [@horowitz1991GeneralizedGuidedMonte]                      | `sampler_rec()` | ❌   | ✅   | ✅   |
+| MCREC                    | `sampler_mcrec()` | ✅   | ✅   | ✅   |
+
+\* Use these algorithms by setting the `alpha` parameter to a value other than 0 in the `sampler_mh()` and `sampler_mc3()` functions respectively. 
