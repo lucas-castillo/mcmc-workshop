@@ -23,7 +23,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -71,6 +91,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -150,23 +199,249 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Under Construction
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This section is not finalised! Sorry for the inconvenience</p>
-</div>
-</div>
+<dl>
+<dt>Acceptance Ratio</dt>
+<dd>
+The proportion of proposals that are added to the chain in the acceptance step. For a Gaussian target, the optimal ratio is 0.234.
+</dd>
+<dt>Approximate Bayesian Computation (ABC)</dt>
+<dd>
+A likelihood-free method for inference: data are simulated with parameters chosen with the prior, and simulations too dissimilar to the observed data are discarded <span class="citation" data-cites="turner2012TutorialApproximateBayesian sisson2019HandbookApproximateBayesian">(<a href="#ref-sisson2019HandbookApproximateBayesian" role="doc-biblioref">Sisson et al., 2019</a>; <a href="#ref-turner2012TutorialApproximateBayesian" role="doc-biblioref">Turner &amp; Van Zandt, 2012</a>)</span>. In the workshop we used the <code>abc</code> package <span class="citation" data-cites="csillery2012AbcPackageApproximate">(<a href="#ref-csillery2012AbcPackageApproximate" role="doc-biblioref">Csilléry et al., 2012</a>)</span>.
+</dd>
+<dt>Autocorrelated Bayesian Sampler (ABS)</dt>
+<dd>
+A model in which judgements come from autocorrelated MCMC samples rather than independent ones, giving a single account of probability judgements, estimates, choices, confidence judgements, confidence intervals, and response times <span class="citation" data-cites="zhu2024AutocorrelatedBayesianSampler">(<a href="#ref-zhu2024AutocorrelatedBayesianSampler" role="doc-biblioref">Zhu et al., 2024</a>)</span>.
+</dd>
+<dt>Anchoring</dt>
+<dd>
+Psychological phenomenon by which estimates are pulled towards values seen before them, even if these cues are irrelevant <span class="citation" data-cites="strack1997ExplainingEnigmaticAnchoring tversky1974JudgmentUncertaintyHeuristics">(<a href="#ref-strack1997ExplainingEnigmaticAnchoring" role="doc-biblioref">Strack &amp; Mussweiler, 1997</a>; <a href="#ref-tversky1974JudgmentUncertaintyHeuristics" role="doc-biblioref">Tversky &amp; Kahneman, 1974</a>)</span>. In sampling accounts this is explained by the MCMC chain starting from the cued value and few samples being drawn <span class="citation" data-cites="lieder2018AnchoringBiasReflects">(<a href="#ref-lieder2018AnchoringBiasReflects" role="doc-biblioref">Lieder et al., 2018</a>)</span>. If co-occurs with its opposite, repulsion <span class="citation" data-cites="spicer2022PerceptualCognitiveJudgments">(<a href="#ref-spicer2022PerceptualCognitiveJudgments" role="doc-biblioref">Spicer et al., 2022</a>)</span>.
+</dd>
+<dt>Autocorrelated Proposals</dt>
+<dd>
+One of the qualitative features that compose the available MCMC algorithms in the <code>samplr</code> package, which can be used to avoid random-walk behaviour. See <a href="#RECHMC">RECHMC</a>
+</dd>
+<dt>Autocorrelation</dt>
+<dd>
+When each sample (or response) resembles the ones before it rather than being independent. A key property of MCMC is that its samples will be autocorrelated <span class="citation" data-cites="brooks2011HandbookMarkovChain">(<a href="#ref-brooks2011HandbookMarkovChain" role="doc-biblioref">Brooks et al., 2011</a>)</span>.
+</dd>
+<dt>Bayesian inference</dt>
+<dd>
+Combining a prior (existing expectations or biases) with a likelihood (from the incoming stimulus) to obtain a posterior (the resulting perception or judgment), via Bayes’ rule. Computing it exactly is usually intractable, which is what motivates sampling.
+</dd>
+<dt>Drift Diffusion Model (DDM)</dt>
+<dd>
+Models a choice and its response time as noisy evidence accumulating like a biased random walk until it crosses a decision threshold <span class="citation" data-cites="ratcliff2016DiffusionDecisionModel ratcliff1998ModelingResponseTimes">(<a href="#ref-ratcliff2016DiffusionDecisionModel" role="doc-biblioref">Ratcliff et al., 2016</a>; <a href="#ref-ratcliff1998ModelingResponseTimes" role="doc-biblioref">Ratcliff &amp; Rouder, 1998</a>)</span>.
+</dd>
+</dl>
+<!-- Decision by Sampling -->
+<!-- :   An account in which an item's value is judged from its rank among samples drawn from memory or the environment, through binary comparisons (Stewart, Chater, & Brown, 2006) — sampling *the world*, not an internal posterior. -->
+<dl>
+<dt>Erlang distribution</dt>
+<dd>
+The distribution of the sum of <span class="math inline">\(k\)</span> independent exponential variables, with mean <span class="math inline">\(1/\lambda\)</span> each. In ABS, the response time is made of some non-decision time plus a value from an Erlang decision where <span class="math inline">\(k\)</span> is the number of samples drawn to make the decision <span class="citation" data-cites="zhu2024AutocorrelatedBayesianSampler">(<a href="#ref-zhu2024AutocorrelatedBayesianSampler" role="doc-biblioref">Zhu et al., 2024</a>)</span>.
+</dd>
+<dt>Gradient-based proposals.</dt>
+<dd>
+One of the qualitative features that compose the available MCMC algorithms in the <code>samplr</code> package, which can be used to make more efficient proposals. See <a href="#HMC">HMC</a>
+</dd>
+<dt><span id="HMC">Hamiltonian Monte Carlo (HMC)</span></dt>
+<dd>
+MCMC algorithm that uses the gradient of the distribution to make efficient proposals <span class="citation" data-cites="neal2011MCMCUsingHamiltonian betancourt2018ConceptualIntroductionHamiltonian">(<a href="#ref-betancourt2018ConceptualIntroductionHamiltonian" role="doc-biblioref">Betancourt, 2018</a>; <a href="#ref-neal2011MCMCUsingHamiltonian" role="doc-biblioref">Neal, 2011</a>)</span>.
+</dd>
+</dl>
+<!-- Information sampling -->
+<!-- :   Sampling from the environment or experience, where bias in *what gets sampled* from the world drives the effect (e.g. hot-stove effects; Fiedler, Juslin, & Denrell, 2023) — contrast with sampling from an internal posterior. -->
+<!-- Local sampling -->
+<!-- :   Sampling in which the next sample depends on the current one (a sense of "location"), making samples autocorrelated; needed to explain probabilistic biases and central to **MCMC** (Dasgupta et al., 2017; Zhu et al., 2022). Contrast *direct sampling*, which draws independent samples (Vul et al., 2014). -->
+<dl>
+<dt>Markov chain Monte Carlo (MCMC)</dt>
+<dd>
+An autocorrelated sampling approach that can sample from a difficult posterior via a biased random walk, visiting each region as often as its probability warrants <span class="citation" data-cites="brooks2011HandbookMarkovChain">(<a href="#ref-brooks2011HandbookMarkovChain" role="doc-biblioref">Brooks et al., 2011</a>)</span>.
+</dd>
+<dt><span id="MC3">Metropolis-coupled MCMC (MC³)</span></dt>
+<dd>
+This MCMC algorithm runs several chains at different temperatures at once and lets them swap, so the cold chain borrows exploration from the hot ones; the sampler used in the ABS <span class="citation" data-cites="geyer1991MarkovChainMonte">(<a href="#ref-geyer1991MarkovChainMonte" role="doc-biblioref">Geyer, 1991</a>)</span>.
+</dd>
+<dt>Metropolis–Hastings (MH)</dt>
+<dd>
+The basic MCMC algorithm: in each iteration a move is proposed, then accepted or rejected based on its density. When a proposal is rejected, the previous sample is added to the chain.
+</dd>
+<dt>Multiple Chains</dt>
+<dd>
+One of the qualitative features that compose the available MCMC algorithms in the <code>samplr</code> package, which can be used to tackle multimodality. See <a href="#MC3">MC<span class="math inline">\(^3\)</span></a>
+</dd>
+<dt>Proposal width</dt>
+<dd>
+In the typical implementation of MH and MC³, proposals are made by adding random normal noise to the previous sample. This refers to the width of the normal distribution that generates proposals. When this is small, exploration is slow; when it is large the acceptance ratio decreases.
+</dd>
+<dt><span id="RECHMC">Recycled Hamiltonian Monte Carlo (RECHMC)</span></dt>
+<dd>
+To avoid random-walk behaviour, instead the momentum parameter in HMC is “recycled”, so that successive momentum parameters are autocorrelated <span class="citation" data-cites="horowitz1991GeneralizedGuidedMonte">(<a href="#ref-horowitz1991GeneralizedGuidedMonte" role="doc-biblioref">Horowitz, 1991</a>)</span>. This gives the sampler a sense of trajectory over multiple iterations.
+</dd>
+<dt>Repulsion</dt>
+<dd>
+The opposite of anchoring: an estimate is pushed away from a nearby preceding value, as often seen in perceptual tasks. Sampling accounts capture anchoring and repulsion together <span class="citation" data-cites="spicer2022PerceptualCognitiveJudgments">(<a href="#ref-spicer2022PerceptualCognitiveJudgments" role="doc-biblioref">Spicer et al., 2022</a>)</span>.
+</dd>
+<dt>Resource rationality</dt>
+<dd>
+The idea that cognition makes optimal use of limited resources; e.g.&nbsp;relying on only a few samples is rational once the cost of sampling is counted <span class="citation" data-cites="vul2014OneDoneOptimal">Lieder &amp; Griffiths (<a href="#ref-lieder2020ResourcerationalAnalysisUnderstanding" role="doc-biblioref">2020</a>)</span>.
+</dd>
+<dt><code>samplr</code></dt>
+<dd>
+The R package introduced in this workshop, implementing these sampling algorithms as cognitive models <span class="citation" data-cites="castillo2025SamplrPackageTool">(<a href="#ref-castillo2025SamplrPackageTool" role="doc-biblioref">Castillo et al., 2025</a>)</span>.
+</dd>
+<dt>Speed–accuracy trade-off</dt>
+<dd>
+Responding faster lowers accuracy and vice versa; in accumulation models this is set by the decision threshold <span class="citation" data-cites="ratcliff1998ModelingResponseTimes">(<a href="#ref-ratcliff1998ModelingResponseTimes" role="doc-biblioref">Ratcliff &amp; Rouder, 1998</a>)</span>.
+</dd>
+<dt>Temperature (in modeling)</dt>
+<dd>
+How flat or peaked a chain treats the distribution. Hot chains roam; cold chains hug the posterior; in MC³ different chains run at different temperatures <span class="citation" data-cites="geyer1991MarkovChainMonte">(<a href="#ref-geyer1991MarkovChainMonte" role="doc-biblioref">Geyer, 1991</a>)</span>.
+</dd>
+</dl>
+<section id="sampling-algorithms-and-their-qualitative-features" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-algorithms-and-their-qualitative-features">Sampling algorithms and their qualitative features</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 25%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Algorithm</th>
+<th><code>samplr</code> function</th>
+<th>M. Chains</th>
+<th>Gradients</th>
+<th>Autoc. Proposals</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Metropolis Hastings (MH) <span class="citation" data-cites="hastings1970MonteCarloSampling">(<a href="#ref-hastings1970MonteCarloSampling" role="doc-biblioref">Hastings, 1970</a>)</span></td>
+<td><code>sampler_mh()</code></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>Metropolis-coupled MCMC (MC<span class="math inline">\(^3\)</span>) <span class="citation" data-cites="geyer1991MarkovChainMonte">(<a href="#ref-geyer1991MarkovChainMonte" role="doc-biblioref">Geyer, 1991</a>)</span></td>
+<td><code>sampler_mc3()</code></td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="odd">
+<td>Hamiltonian Monte Carlo (HMC) <span class="citation" data-cites="neal2011MCMCUsingHamiltonian">(<a href="#ref-neal2011MCMCUsingHamiltonian" role="doc-biblioref">Neal, 2011</a>)</span></td>
+<td><code>sampler_hmc()</code></td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>RECMH*</td>
+<td><code>sampler_mh(alpha=)</code></td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>MCHMC</td>
+<td><code>sampler_mchmc()</code></td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>RECMC3*</td>
+<td><code>sampler_mc3(alpha=)</code></td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>RECHMC <span class="citation" data-cites="horowitz1991GeneralizedGuidedMonte">(<a href="#ref-horowitz1991GeneralizedGuidedMonte" role="doc-biblioref">Horowitz, 1991</a>)</span></td>
+<td><code>sampler_rec()</code></td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>MCREC</td>
+<td><code>sampler_mcrec()</code></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>* Use these algorithms by setting the <code>alpha</code> parameter to a value other than 0 in the <code>sampler_mh()</code> and <code>sampler_mc3()</code> functions respectively.</p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-betancourt2018ConceptualIntroductionHamiltonian" class="csl-entry" role="listitem">
+Betancourt, M. (2018). <em>A <span>Conceptual Introduction</span> to <span>Hamiltonian Monte Carlo</span></em> (1701.02434). <a href="http://arxiv.org/abs/1701.02434">http://arxiv.org/abs/1701.02434</a> (Pre-published)
+</div>
+<div id="ref-brooks2011HandbookMarkovChain" class="csl-entry" role="listitem">
+Brooks, S., Andrew Gelman, Jones, G., &amp; Meng, X.-L. (Eds.). (2011). <em>Handbook for <span>Markov</span> chain <span>Monte Carlo</span></em>. Taylor &amp; Francis.
+</div>
+<div id="ref-castillo2025SamplrPackageTool" class="csl-entry" role="listitem">
+Castillo, L., Li, Y.-X., &amp; Sanborn, A. N. (2025). <em>The samplr package: <span>A</span> tool for modeling human cognition with sampling algorithms</em>. <a href="https://doi.org/10.31234/osf.io/ax8hm_v2">https://doi.org/10.31234/osf.io/ax8hm_v2</a>
+</div>
+<div id="ref-csillery2012AbcPackageApproximate" class="csl-entry" role="listitem">
+Csilléry, K., François, O., &amp; Blum, M. G. B. (2012). Abc: An <span>R</span> package for approximate <span>Bayesian</span> computation (<span>ABC</span>). <em>Methods in Ecology and Evolution</em>, <em>3</em>(3), 475–479. <a href="https://doi.org/10.1111/j.2041-210X.2011.00179.x">https://doi.org/10.1111/j.2041-210X.2011.00179.x</a>
+</div>
+<div id="ref-geyer1991MarkovChainMonte" class="csl-entry" role="listitem">
+Geyer, C. J. (1991). Markov <span>Chain Monte Carlo Maximum Likelihood</span>. <em>Proc. 23rd Symposium on the Interface Interface Foundation, Fairfax Station, 1991</em>, 156–163.
+</div>
+<div id="ref-hastings1970MonteCarloSampling" class="csl-entry" role="listitem">
+Hastings, W. K. (1970). Monte <span>Carlo</span> sampling methods using <span>Markov</span> chains and their applications. <em>Biometrika</em>, <em>57</em>(1), 97–109. <a href="https://doi.org/10.1093/biomet/57.1.97">https://doi.org/10.1093/biomet/57.1.97</a>
+</div>
+<div id="ref-horowitz1991GeneralizedGuidedMonte" class="csl-entry" role="listitem">
+Horowitz, A. M. (1991). A <span>Generalized Guided Monte Carlo Algorithm</span>. <em>Physics Letters B</em>, <em>268</em>(2), 247–252. <a href="https://doi.org/10.1016/0370-2693(91)90812-5">https://doi.org/10.1016/0370-2693(91)90812-5</a>
+</div>
+<div id="ref-lieder2020ResourcerationalAnalysisUnderstanding" class="csl-entry" role="listitem">
+Lieder, F., &amp; Griffiths, T. L. (2020). Resource-rational analysis: <span>Understanding</span> human cognition as the optimal use of limited computational resources. <em>Behavioral and Brain Sciences</em>, <em>43</em>, e1. <a href="https://doi.org/10.1017/S0140525X1900061X">https://doi.org/10.1017/S0140525X1900061X</a>
+</div>
+<div id="ref-lieder2018AnchoringBiasReflects" class="csl-entry" role="listitem">
+Lieder, F., Griffiths, T. L., M. Huys, Q. J., &amp; Goodman, N. D. (2018). The anchoring bias reflects rational use of cognitive resources. <em>Psychonomic Bulletin &amp; Review</em>, <em>25</em>(1), 322–349. <a href="https://doi.org/10.3758/s13423-017-1286-8">https://doi.org/10.3758/s13423-017-1286-8</a>
+</div>
+<div id="ref-neal2011MCMCUsingHamiltonian" class="csl-entry" role="listitem">
+Neal, R. M. (2011). <span>MCMC Using Hamiltonian Dynamics</span>. In S. Brooks, A. Gelman, G. Jones, &amp; X.-L. Meng (Eds.), <em>Handbook of <span>Markov Chain Monte Carlo</span></em> (1st ed., pp. 113–162). <span>Chapman and Hall/CRC</span>. <a href="https://doi.org/10.1201/b10905">https://doi.org/10.1201/b10905</a>
+</div>
+<div id="ref-ratcliff1998ModelingResponseTimes" class="csl-entry" role="listitem">
+Ratcliff, R., &amp; Rouder, J. N. (1998). Modeling <span>Response Times</span> for <span>Two-Choice Decisions</span>. <em>Psychological Science</em>, <em>9</em>(5), 347–356. <a href="https://doi.org/10.1111/1467-9280.00067">https://doi.org/10.1111/1467-9280.00067</a>
+</div>
+<div id="ref-ratcliff2016DiffusionDecisionModel" class="csl-entry" role="listitem">
+Ratcliff, R., Smith, P. L., Brown, S. D., &amp; McKoon, G. (2016). Diffusion <span>Decision Model</span>: <span>Current Issues</span> and <span>History</span>. <em>Trends in Cognitive Sciences</em>, <em>20</em>(4), 260–281. <a href="https://doi.org/10.1016/j.tics.2016.01.007">https://doi.org/10.1016/j.tics.2016.01.007</a>
+</div>
+<div id="ref-sisson2019HandbookApproximateBayesian" class="csl-entry" role="listitem">
+Sisson, S. A., Fan, Y., &amp; Beaumont, M. A. (Eds.). (2019). <em>Handbook of approximate <span>Bayesian</span> computation</em>. CRC Press, Taylor &amp; Francis Group.
+</div>
+<div id="ref-spicer2022PerceptualCognitiveJudgments" class="csl-entry" role="listitem">
+Spicer, J., Zhu, J.-Q., Chater, N., &amp; Sanborn, A. N. (2022). Perceptual and <span>Cognitive Judgments Show Both Anchoring</span> and <span>Repulsion</span>. <em>Psychological Science</em>, <em>33</em>(9), 1395–1407. <a href="https://doi.org/10.1177/09567976221089599">https://doi.org/10.1177/09567976221089599</a>
+</div>
+<div id="ref-strack1997ExplainingEnigmaticAnchoring" class="csl-entry" role="listitem">
+Strack, F., &amp; Mussweiler, T. (1997). Explaining the enigmatic anchoring effect: <span>Mechanisms</span> of selective accessibility. <em>Journal of Personality and Social Psychology</em>, <em>73</em>(3), 437–446. <a href="https://doi.org/10.1037/0022-3514.73.3.437">https://doi.org/10.1037/0022-3514.73.3.437</a>
+</div>
+<div id="ref-turner2012TutorialApproximateBayesian" class="csl-entry" role="listitem">
+Turner, B. M., &amp; Van Zandt, T. (2012). A tutorial on approximate <span>Bayesian</span> computation. <em>Journal of Mathematical Psychology</em>, <em>56</em>(2), 69–85. <a href="https://doi.org/10.1016/j.jmp.2012.02.005">https://doi.org/10.1016/j.jmp.2012.02.005</a>
+</div>
+<div id="ref-tversky1974JudgmentUncertaintyHeuristics" class="csl-entry" role="listitem">
+Tversky, A., &amp; Kahneman, D. (1974). Judgment under <span>Uncertainty</span>: <span>Heuristics</span> and <span>Biases</span>: <span>Biases</span> in judgments reveal some heuristics of thinking under uncertainty. <em>Science</em>, <em>185</em>(4157), 1124–1131. <a href="https://doi.org/10.1126/science.185.4157.1124">https://doi.org/10.1126/science.185.4157.1124</a>
+</div>
+<div id="ref-vul2014OneDoneOptimal" class="csl-entry" role="listitem">
+Vul, E., Goodman, N., Griffiths, T. L., &amp; Tenenbaum, J. B. (2014). One and <span>Done</span>? <span>Optimal Decisions From Very Few Samples</span>. <em>Cognitive Science</em>, <em>38</em>(4), 599–637. <a href="https://doi.org/10.1111/cogs.12101">https://doi.org/10.1111/cogs.12101</a>
+</div>
+<div id="ref-zhu2024AutocorrelatedBayesianSampler" class="csl-entry" role="listitem">
+Zhu, J.-Q., Sundh, J., Spicer, J., Chater, N., &amp; Sanborn, A. N. (2024). The autocorrelated <span>Bayesian</span> sampler: <span>A</span> rational process for probability judgments, estimates, confidence intervals, choices, confidence judgments, and response times. <em>Psychological Review</em>, <em>131</em>(2), 456–493. <a href="https://doi.org/10.1037/rev0000427">https://doi.org/10.1037/rev0000427</a>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
