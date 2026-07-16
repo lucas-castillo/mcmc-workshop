@@ -76,10 +76,8 @@ Resource rationality
 Speed–accuracy trade-off
 :   Responding faster lowers accuracy and vice versa; in accumulation models this is set by the decision threshold [@ratcliff1998ModelingResponseTimes].
 
-Temperature (in modeling)
+Temperature
 :   How flat or peaked a chain treats the distribution. Hot chains roam; cold chains hug the posterior; in MC³ different chains run at different temperatures [@geyer1991MarkovChainMonte].
-
-
 
 ## Sampling algorithms and their qualitative features
 |Algorithm|`samplr` function|M. Chains|Gradients|Autoc. Proposals
