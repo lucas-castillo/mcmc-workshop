@@ -10,7 +10,7 @@ website:
       - people.qmd
       - schedule.qmd
       - materials.qmd
-      - Glossary.qmd
+      - glossary.qmd
       - href: requirements.qmd
         text: Prerequisites
 
