@@ -39,14 +39,14 @@
     "href": "slides/2-samplr.html#metropolis-hastings",
     "title": "The samplr package",
     "section": "Metropolis Hastings",
-    "text": "Metropolis Hastings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsampler_mh(\n  start = 1,\n  distr_name = \"norm\",\n  distr_params = c(0, 1),\n  sigma_prop = .1,\n  iterations = 100\n)\n\n\n\n\n\n\n\n\n\n\n\nDocumentation\n\n\nYou can access function documentation by prepending a function with ?, i.e. ?sampler_mh"
+    "text": "Metropolis Hastings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsampler_mh(\n  start = 1,\n  distr_name = \"norm\",\n  distr_params = c(0, 1),\n  sigma_prop = .1,\n  iterations = 1e4\n)\n\n\n\n\n\n\n\n\n\n\n\nDocumentation\n\n\nYou can access function documentation by prepending a function with ?, i.e. ?sampler_mh"
   },
   {
     "objectID": "slides/2-samplr.html#sampling-from-metropolis-hastings",
     "href": "slides/2-samplr.html#sampling-from-metropolis-hastings",
     "title": "The samplr package",
     "section": "Sampling from Metropolis Hastings",
-    "text": "Sampling from Metropolis Hastings\n\nUse sampler_mh() to generate samples from a Normal distribution \\(\\mu=3; \\sigma^2=5\\)\nSame as above, but with a large proposal width (\\(\\sigma^2_{prop} = 10\\)). How does the acceptance rate change?\nUse sampler_mh() to generate samples from a Beta distribution \\(\\alpha = 4, \\beta = 4\\)"
+    "text": "Sampling from Metropolis Hastings\n\nUse sampler_mh() to generate samples from a Normal distribution \\(\\mu=3; \\sigma^2=5\\)\nSame as above, but with a large proposal width (\\(\\sigma^2_{prop} = 10\\)). How does the acceptance rate change?\nUse sampler_mh() to generate samples from a Beta distribution \\(\\alpha = 4, \\beta = 4\\)\n\n\n\n\n\n\n\n\nQuick Start\n\n\nUse the 2.samplr.R file for a quick implementation."
   },
   {
     "objectID": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-1",
@@ -77,6 +77,13 @@
     "text": "Sampling from Metropolis Hastings (my solutions #2)\n\n\n\\(\\sigma^2_{prop} = .01\\) after 1000 iterations\n\n\n\n\n\n\n\n\n\n\n\\(\\sigma^2_{prop} = 100\\) after 1000 iterations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nFor a Gaussian, the ideal acceptance rate is .234"
   },
   {
+    "objectID": "slides/2-samplr.html#clarifying-sigma..",
+    "href": "slides/2-samplr.html#clarifying-sigma..",
+    "title": "The samplr package",
+    "section": "Clarifying sigma..",
+    "text": "Clarifying sigma..\n\n\n\n\n\n\n\n\nWarning\n\n\nNotice that:\n\ndistr_params for distr_name = \"norm\" uses sd\nthe proposal width is given as variance\n\n\n\n\n\n\n\nsampler_mh(\n  start = 0, \n  distr_name = \"norm\",\n  distr_params = c(0, 2), \n  sigma_prop = 4\n)\n\n⬆️ Equal proposal width and target width"
+  },
+  {
     "objectID": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-3",
     "href": "slides/2-samplr.html#sampling-from-metropolis-hastings-my-solutions-3",
     "title": "The samplr package",
@@ -95,14 +102,14 @@
     "href": "slides/2-samplr.html#from-samples-to-responses-anchoring-1",
     "title": "The samplr package",
     "section": "From samples to responses – Anchoring",
-    "text": "From samples to responses – Anchoring\n\n\n\nTarget distribution\n\nThe true height of the cathedral is 157m\nProbably very uncertain \\(\\rightarrow \\mathcal N (\\mu=157, \\sigma=30)\\)\nLet’s fix sigma_prop = 20\nStart point is either start=320 or start=60\nMean answers: \\(\\bar x_{high} = 273;\\bar x_{low} = 89\\)\n\n\n\n\nReplicating the effect\n\nMake the last sample the response\nHow many samples are needed to replicate the effect in both groups?\nIs there a situation where response=last sample might not make much sense?"
+    "text": "From samples to responses – Anchoring\n\n\n\nTarget distribution\n\nThe true height of the cathedral is 157m\nProbably very uncertain \\(\\rightarrow \\mathcal N (\\mu=157, \\sigma=30)\\)\nLet’s fix sigma_prop = 20\nStart point is either start=320 or start=60\nMean answers: \\(\\bar x_{high} = 273;\\bar x_{low} = 89\\)\n\n\n\n\nReplicating the effect\n\nMake the last sample the response\nHow many samples are needed to replicate the effect in both groups?\nHow do the sd of the target and the proposal variance influence the result?\nIs there a situation where response=last sample might not make much sense?"
   },
   {
     "objectID": "slides/2-samplr.html#from-samples-to-responses-anchoring-my-solution",
     "href": "slides/2-samplr.html#from-samples-to-responses-anchoring-my-solution",
     "title": "The samplr package",
     "section": "From samples to responses – Anchoring (my solution)",
-    "text": "From samples to responses – Anchoring (my solution)\n\n\n\n\nset.seed(1)\nstarts &lt;- c(60, 320)\ndistr_name &lt;- \"norm\"\ndistr_params &lt;- c(157, 30)\nsigma_prop &lt;- 20\n\nresponses &lt;- c()\nfor (start in starts){\n  for (n in 1:200){\n    responses &lt;- c(responses, sampler_mh(\n      start, \n      distr_name, \n      distr_params, \n      sigma_prop, \n      iterations = n)$Samples[n,1]\n    )\n  }\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIs there a situation where response=last sample might not make much sense?\n\n\nWhen starting point influence disappears, mean of samples is a better estimate (burn-in)."
+    "text": "From samples to responses – Anchoring (my solution)\n\n\n\n\nset.seed(1)\nstarts &lt;- c(60, 320)\n\ntarget_sd &lt;- 30\nproposal_variance &lt;- 20\nn.max &lt;- 200 # maximum number of samples we're going to test\n\n# Initialise vector\nresponses &lt;- c()\n\n# Loop over starting points\nfor (start in starts){\n  # loop over possible n values\n  for (n in 1:n.max){\n    samples &lt;- sampler_mh(\n      start = start, \n      distr_name = \"norm\", \n      distr_params = c(157, target_sd), \n      sigma_prop = proposal_variance, \n      iterations = n\n    )$Samples[n] # choose the nth sample\n    \n    # add samples to vector\n    responses &lt;- c(responses, samples)\n  }\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIs there a situation where response=last sample might not make much sense?\n\n\nWhen starting point influence disappears, mean of samples is a better estimate (burn-in)."
   },
   {
     "objectID": "slides/2-samplr.html#sampling-functions",
@@ -123,105 +130,84 @@
     "href": "slides/2-samplr.html#multiple-chains",
     "title": "The samplr package",
     "section": "Multiple Chains",
-    "text": "Multiple Chains\n\n\nThe basic idea\n\nHave more than one chain running at the same time\n\n\nFirst chain (cold chain) exactly like MH\n\n\nOther chains have higher temperature (more likely to accept)\n\n\nSometimes chains swap positions (if the colder of the two is “happy” with the new place)\n\n\nEnd: only consider cold chain. (in the package, take the first slice: samples[,,1])"
+    "text": "Multiple Chains\n\n\nThe basic idea\n\nHave more than one chain running at the same time (Geyer, 1991)\n\n\nFirst chain (cold chain) exactly like MH\n\n\nOther chains have higher temperature (more likely to accept)\n\n\nSometimes chains swap positions (if the colder of the two is “happy” with the new place)\n\n\nEnd: only consider cold chain. (in the package, take the first slice: samples[,,1])"
   },
   {
     "objectID": "slides/2-samplr.html#gradient-based-proposals",
     "href": "slides/2-samplr.html#gradient-based-proposals",
     "title": "The samplr package",
     "section": "Gradient-based proposals",
-    "text": "Gradient-based proposals\n\n\nThe basic idea\n\nDon’t make “blind” proposals, but base them on the gradient of the target density\n\n\nThis increases acceptance rate without being stuck in a location.\n\n\nAchieved by simulating a physical system with random momentum in each iteration. (simulate \\(L\\) steps of size [precision] \\(\\epsilon\\))"
+    "text": "Gradient-based proposals\n\n\nThe basic idea\n\nDon’t make “blind” proposals, but base them on the gradient of the target density (Neal, 2011)\n\n\nThis increases acceptance rate without being stuck in a location.\n\n\nAchieved by simulating a physical system with random momentum in each iteration. (simulate \\(L\\) steps of size [precision] \\(\\epsilon\\))"
   },
   {
     "objectID": "slides/2-samplr.html#autocorrelated-proposals",
     "href": "slides/2-samplr.html#autocorrelated-proposals",
     "title": "The samplr package",
     "section": "Autocorrelated proposals",
-    "text": "Autocorrelated proposals\n\n\n\nIn MH,\n\n\\(\\theta^{t'} = \\theta^{t-1} + n; n \\sim \\mathcal N (0, \\sigma)\\)\n\nIn Gradient-based proposals:\n\n\\(\\rho \\sim \\mathcal N (0, 1)\\)\n\n\n\nThis can lead to random-walk behaviour which is inefficient sometimes\n\n\nInstead, recycle the previous jump to get a sense of trajectory."
+    "text": "Autocorrelated proposals\n\n\n\nIn MH,\n\n\\(\\theta^{t'} = \\theta^{t-1} + n; n \\sim \\mathcal N (0, \\sigma)\\)\n\nIn Gradient-based proposals:\n\n\\(\\rho \\sim \\mathcal N (0, 1)\\)\n\n\n\nThis can lead to random-walk behaviour which is inefficient sometimes\n\n\nInstead, recycle the previous jump to get a sense of trajectory.\n\n\n(Horowitz, 1991)"
   },
   {
     "objectID": "slides/2-samplr.html#qualitative-features-1",
     "href": "slides/2-samplr.html#qualitative-features-1",
     "title": "The samplr package",
     "section": "Qualitative Features",
-    "text": "Qualitative Features\n\n\n\n\n\n\n\n\n\nAlgorithm\nM. Chains\nGradients\nAutoc. Proposals\n\n\n\n\nMetropolis Hastings (MH) (Hastings, 1970)\n❌\n❌\n❌\n\n\nMetropolis-coupled MCMC (MC\\(^3\\)) (Geyer, 1991)\n✅\n❌\n❌\n\n\nHamiltonian Monte Carlo (HMC) (Neal, 2011)\n❌\n✅\n❌\n\n\nRECMH*\n❌\n❌\n✅\n\n\nMCHMC\n✅\n✅\n❌\n\n\nRECMC3*\n✅\n❌\n✅\n\n\nRECHMC\n❌\n✅\n✅\n\n\nMCREC\n✅\n✅\n✅\n\n\n\n\n\\(^*\\) Set alpha!=0 in sampler_mh() and sampler_mc3() functions"
+    "text": "Qualitative Features\n\n\n\n\n\n\n\n\n\n\nAlgorithm\nsamplr function\nM. Chains\nGradients\nAutoc. Proposals\n\n\n\n\nMetropolis Hastings (MH) (Hastings, 1970)\nsampler_mh()\n❌\n❌\n❌\n\n\nMetropolis-coupled MCMC (MC\\(^3\\)) (Geyer, 1991)\nsampler_mc3()\n✅\n❌\n❌\n\n\nHamiltonian Monte Carlo (HMC) (Neal, 2011)\nsampler_hmc()\n❌\n✅\n❌\n\n\nRECMH*\nsampler_mh(alpha=)\n❌\n❌\n✅\n\n\nMCHMC\nsampler_mchmc()\n✅\n✅\n❌\n\n\nRECMC3*\nsampler_mc3(alpha=)\n✅\n❌\n✅\n\n\nRECHMC (Horowitz, 1991)\nsampler_rec()\n❌\n✅\n✅\n\n\nMCREC\nsampler_mcrec()\n✅\n✅\n✅\n\n\n\n* Use these algorithms by setting the alpha parameter to a value other than 0 in the sampler_mh() and sampler_mc3() functions respectively.\n\n\n\n\n\n\n\nNote\n\n\nThese names appear in the Glossary"
   },
   {
     "objectID": "slides/2-samplr.html#practice",
     "href": "slides/2-samplr.html#practice",
     "title": "The samplr package",
     "section": "Practice",
-    "text": "Practice\nConsider the distribution\n\n\n\nset.seed(1)\nn &lt;- 5\nnames &lt;- rep(\"mvnorm\", n)\nparameters &lt;- list()\nfor (i in 1:n){\n  parameters[[i]] &lt;- list(\n    runif(2) * 18 - 9, \n    diag(2)\n  )\n}\nweights &lt;- runif(n);\nweights &lt;- weights / sum(weights)\n\n\n\n\n\n\n\n\n\n\n\n\n\nChoose an algorithm other than MH and draw samples from the distribution."
+    "text": "Practice\nConsider the distribution\n\n\n\nnames &lt;- rep(\"norm\", 2)\nparameters &lt;- list(c(-2, .25), c(2, .25))\nweights &lt;- rep(.5, 2)\n\n\n\n\n\n\n\n\n\n\n\n\n\nChoose an algorithm other than MH and draw samples from the distribution."
   },
   {
     "objectID": "slides/2-samplr.html#my-answer",
     "href": "slides/2-samplr.html#my-answer",
     "title": "The samplr package",
     "section": "My answer",
-    "text": "My answer\n\n\n\nsampler_*(\n  start = c(1,1), \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights\n)\n\n\n\nsampler_mc3(\n  start = c(1,1), \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights, \n  sigma_prop = diag(2),\n  nChains = 6\n)$Samples[,,1]\n\n\n\n\n\nsampler_hmc(\n  start = c(1,1), \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights,\n  epsilon = .1, L = 10\n)$Samples\n\n\n\n\nsampler_mcrec(\n  start = c(1,1), \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights,\n  epsilon = .1, L = 10,\n  alpha = .5\n)$Samples[,,1]"
+    "text": "My answer\n\n\n\nsampler_*(\n  start = -2, \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights\n)\n\n\n\n\n# Metropolis Hastings\nsampler_mh(\n  start = -2, \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights,\n  sigma_prop = .5\n)$Samples[,1]\n\n\n\n\n# MC3\nsampler_mc3(\n  start = -2, \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights,\n  sigma_prop = .5, \n  nChains = 6\n)$Samples[,,1] # first slice\n\n\n\n\n# HMC\nsampler_hmc(\n  start = -2, \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights,\n  epsilon = .1,  \n  L = 10 \n)$Samples[,1]\n\n\n\n\n# REC\nsampler_rec(\n  start = -2, \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights,\n  epsilon = .1,  \n  L = 10, \n  alpha = .4 \n)$Samples[,1]\n\n\n\n\n# MCREC\nsampler_mcrec(\n  start = -2, \n  distr_name = names, \n  distr_params = parameters, \n  weights = weights,\n  nChains = 6, \n  epsilon = .1,  \n  L = 10, \n  alpha = .4 \n)$Samples[,,1] # first slice"
   },
   {
     "objectID": "slides/2-samplr.html#references",
     "href": "slides/2-samplr.html#references",
     "title": "The samplr package",
     "section": "References",
-    "text": "References\n\n\nCastillo, L., Li, Y.-X., & Sanborn, A. N. (2025). The samplr package: A tool for modeling human cognition with sampling algorithms. https://doi.org/10.31234/osf.io/ax8hm_v2\n\n\nGeyer, C. J. (1991). Markov Chain Monte Carlo Maximum Likelihood. Proc. 23rd Symposium on the Interface Interface Foundation, Fairfax Station, 1991, 156–163.\n\n\nHastings, W. K. (1970). Monte Carlo sampling methods using Markov chains and their applications. Biometrika, 57(1), 97–109. https://doi.org/10.1093/biomet/57.1.97\n\n\nLieder, F., Griffiths, T. L., M. Huys, Q. J., & Goodman, N. D. (2018). The anchoring bias reflects rational use of cognitive resources. Psychonomic Bulletin & Review, 25(1), 322–349. https://doi.org/10.3758/s13423-017-1286-8\n\n\nNeal, R. M. (2011). MCMC Using Hamiltonian Dynamics. In S. Brooks, A. Gelman, G. Jones, & X.-L. Meng (Eds.), Handbook of Markov Chain Monte Carlo (1st ed., pp. 113–162). Chapman and Hall/CRC. https://doi.org/10.1201/b10905\n\n\nStrack, F., & Mussweiler, T. (1997). Explaining the enigmatic anchoring effect: Mechanisms of selective accessibility. Journal of Personality and Social Psychology, 73(3), 437–446. https://doi.org/10.1037/0022-3514.73.3.437\n\n\nZhu, J.-Q., Sundh, J., Spicer, J., Chater, N., & Sanborn, A. N. (2024). The autocorrelated Bayesian sampler: A rational process for probability judgments, estimates, confidence intervals, choices, confidence judgments, and response times. Psychological Review, 131(2), 456–493. https://doi.org/10.1037/rev0000427"
+    "text": "References\n\n\nCastillo, L., Li, Y.-X., & Sanborn, A. N. (2025). The samplr package: A tool for modeling human cognition with sampling algorithms. https://doi.org/10.31234/osf.io/ax8hm_v2\n\n\nGeyer, C. J. (1991). Markov Chain Monte Carlo Maximum Likelihood. Proc. 23rd Symposium on the Interface Interface Foundation, Fairfax Station, 1991, 156–163.\n\n\nHastings, W. K. (1970). Monte Carlo sampling methods using Markov chains and their applications. Biometrika, 57(1), 97–109. https://doi.org/10.1093/biomet/57.1.97\n\n\nHorowitz, A. M. (1991). A Generalized Guided Monte Carlo Algorithm. Physics Letters B, 268(2), 247–252. https://doi.org/10.1016/0370-2693(91)90812-5\n\n\nLieder, F., Griffiths, T. L., M. Huys, Q. J., & Goodman, N. D. (2018). The anchoring bias reflects rational use of cognitive resources. Psychonomic Bulletin & Review, 25(1), 322–349. https://doi.org/10.3758/s13423-017-1286-8\n\n\nNeal, R. M. (2011). MCMC Using Hamiltonian Dynamics. In S. Brooks, A. Gelman, G. Jones, & X.-L. Meng (Eds.), Handbook of Markov Chain Monte Carlo (1st ed., pp. 113–162). Chapman and Hall/CRC. https://doi.org/10.1201/b10905\n\n\nStrack, F., & Mussweiler, T. (1997). Explaining the enigmatic anchoring effect: Mechanisms of selective accessibility. Journal of Personality and Social Psychology, 73(3), 437–446. https://doi.org/10.1037/0022-3514.73.3.437\n\n\nZhu, J.-Q., Sundh, J., Spicer, J., Chater, N., & Sanborn, A. N. (2024). The autocorrelated Bayesian sampler: A rational process for probability judgments, estimates, confidence intervals, choices, confidence judgments, and response times. Psychological Review, 131(2), 456–493. https://doi.org/10.1037/rev0000427"
   },
   {
-    "objectID": "slides/template_slides.html#this-is-a-test-slide",
-    "href": "slides/template_slides.html#this-is-a-test-slide",
-    "title": "Presentation title",
-    "section": "This is a test slide",
-    "text": "This is a test slide\nwith some text"
+    "objectID": "slides/1-intro.html#about-the-workshop",
+    "href": "slides/1-intro.html#about-the-workshop",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nSchedule\n\n\n\n\n\nTime\n\n\n\n\n\n08:30 - 09:15\nAn Introduction to MCMC\n\n\n09:15 - 10:00\nThe samplr package\n\n\n10:00 - 10:30\nBreak\n\n\n10:30 - 11:00\nABS: A cognitive model using MCMC\n\n\n11:00 - 11:40\nUsing ABC for simulation-based inference\n\n\n11:40 - 11:55\nFuture Directions and Discussion\n\n\n11:55 - 12:00\nFinal Wrap-Up\n\n\n\n\n\n\n\n\n\n\n\nNotes\n\n\nTake a break if you need a break!\nFeel free to interrupt, ask questions, etc."
   },
   {
-    "objectID": "slides/template_slides.html#this-is-another-slide",
-    "href": "slides/template_slides.html#this-is-another-slide",
-    "title": "Presentation title",
-    "section": "This is another slide",
-    "text": "This is another slide\nwith some more text"
+    "objectID": "slides/1-intro.html#about-the-workshop-1",
+    "href": "slides/1-intro.html#about-the-workshop-1",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nWebsite\n\n\nhttps://lucas-castillo.github.io/mcmc-workshop/\n\nMaterials\nSchedule\nGlossary\netc."
   },
   {
-    "objectID": "slides/template_slides.html#code-slide",
-    "href": "slides/template_slides.html#code-slide",
-    "title": "Presentation title",
-    "section": "Code Slide",
-    "text": "Code Slide\n\n\n\nx &lt;- c(1, 2, 3, 4, 5)\nmean(x)\n\n\n\n\n[1] 3"
+    "objectID": "slides/1-intro.html#about-the-workshop-2",
+    "href": "slides/1-intro.html#about-the-workshop-2",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nRequirements\nBefore the workshop, please install the R programming language in your machine. An IDE such as RStudio is recommended but not necessary.\nThe workshop will make use of the following packages for computations: samplr, abc; and these packages for plotting purposes: tidyverse, patchwork. You can install them by running:\ninstall.packages(c(\"samplr\", \"abc\", \"tidyverse\", \"patchwork\"))\non your R console.\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
   },
   {
-    "objectID": "slides/template_slides.html#code-2",
-    "href": "slides/template_slides.html#code-2",
-    "title": "Presentation title",
-    "section": "Code 2",
-    "text": "Code 2\n\nx &lt;- c(1, 2, 3, 4, 5)\nmean(x)"
+    "objectID": "slides/1-intro.html#about-the-workshop-3",
+    "href": "slides/1-intro.html#about-the-workshop-3",
+    "title": "Autocorrelated Sampling in Cognition",
+    "section": "About the workshop",
+    "text": "About the workshop\nPeople\n\n\nOrganisers\n\n\n\n\n\n\n\nDr. Lucas Castillo\n\n\n\nDr. C. Stella Qian\n\n\n\nProf. Adam Sanborn\n\n\n\n\n\nGuest Speakers\n\n\n\n\n\n\n\nDr. Neil Bramley\n\n\n\nProf. Bob Rehder"
   },
   {
-    "objectID": "slides/template_slides.html#snippets",
-    "href": "slides/template_slides.html#snippets",
-    "title": "Presentation title",
-    "section": "Snippets",
-    "text": "Snippets\nI’ve defined the following snippets\n\ntf for text flourish\ncf for code flourish\n:: for quarto div\ncol for 2-column environment"
-  },
-  {
-    "objectID": "slides/template_slides.html#fancy-math",
-    "href": "slides/template_slides.html#fancy-math",
-    "title": "Presentation title",
-    "section": "Fancy math",
-    "text": "Fancy math\n\\[\np(H|D) = \\frac{%\n    \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(D|H)P(H)}}\n    }{%\n      \\data{rn-color=#F2D541}{\\class{rn-fragment fragment}{p(B)}}\n}\n\\]"
-  },
-  {
-    "objectID": "Glossary.html",
-    "href": "Glossary.html",
-    "title": "Glossary",
+    "objectID": "requirements.html",
+    "href": "requirements.html",
+    "title": "Workshop Prerequisites",
     "section": "",
-    "text": "Acceptance Ratio\n\nThe proportion of proposals that are added to the chain in the acceptance step. For a Gaussian target, the optimal ratio is 0.234.\n\nApproximate Bayesian Computation (ABC)\n\nA likelihood-free method for inference: data are simulated with parameters chosen with the prior, and simulations too dissimilar to the observed data are discarded (Sisson et al., 2019; Turner & Van Zandt, 2012). In the workshop we used the abc package (Csilléry et al., 2012).\n\nAutocorrelated Bayesian Sampler (ABS)\n\nA model in which judgements come from autocorrelated MCMC samples rather than independent ones, giving a single account of probability judgements, estimates, choices, confidence judgements, confidence intervals, and response times (Zhu et al., 2024).\n\nAnchoring\n\nPsychological phenomenon by which estimates are pulled towards values seen before them, even if these cues are irrelevant (Strack & Mussweiler, 1997; Tversky & Kahneman, 1974). In sampling accounts this is explained by the MCMC chain starting from the cued value and few samples being drawn (Lieder et al., 2018). If co-occurs with its opposite, repulsion (Spicer et al., 2022).\n\nAutocorrelated Proposals\n\nOne of the qualitative features that compose the available MCMC algorithms in the samplr package, which can be used to avoid random-walk behaviour. See RECHMC\n\nAutocorrelation\n\nWhen each sample (or response) resembles the ones before it rather than being independent. A key property of MCMC is that its samples will be autocorrelated (Brooks et al., 2011).\n\nBayesian inference\n\nCombining a prior (existing expectations or biases) with a likelihood (from the incoming stimulus) to obtain a posterior (the resulting perception or judgment), via Bayes’ rule. Computing it exactly is usually intractable, which is what motivates sampling.\n\nDrift Diffusion Model (DDM)\n\nModels a choice and its response time as noisy evidence accumulating like a biased random walk until it crosses a decision threshold (Ratcliff et al., 2016; Ratcliff & Rouder, 1998)."
-  },
-  {
-    "objectID": "Glossary.html#sampling-algorithms-and-their-qualitative-features",
-    "href": "Glossary.html#sampling-algorithms-and-their-qualitative-features",
-    "title": "Glossary",
-    "section": "Sampling algorithms and their qualitative features",
-    "text": "Sampling algorithms and their qualitative features\n\n\n\n\n\n\n\n\n\n\nAlgorithm\nsamplr function\nM. Chains\nGradients\nAutoc. Proposals\n\n\n\n\nMetropolis Hastings (MH) (Hastings, 1970)\nsampler_mh()\n❌\n❌\n❌\n\n\nMetropolis-coupled MCMC (MC\\(^3\\)) (Geyer, 1991)\nsampler_mc3()\n✅\n❌\n❌\n\n\nHamiltonian Monte Carlo (HMC) (Neal, 2011)\nsampler_hmc()\n❌\n✅\n❌\n\n\nRECMH*\nsampler_mh(alpha=)\n❌\n❌\n✅\n\n\nMCHMC\nsampler_mchmc()\n✅\n✅\n❌\n\n\nRECMC3*\nsampler_mc3(alpha=)\n✅\n❌\n✅\n\n\nRECHMC (Horowitz, 1991)\nsampler_rec()\n❌\n✅\n✅\n\n\nMCREC\nsampler_mcrec()\n✅\n✅\n✅\n\n\n\n* Use these algorithms by setting the alpha parameter to a value other than 0 in the sampler_mh() and sampler_mc3() functions respectively."
+    "text": "Before the workshop, please install the R programming language in your machine. An IDE such as RStudio is recommended but not necessary.\nThe workshop will make use of the following packages for computations: samplr, abc; and these packages for plotting purposes: tidyverse, patchwork. You can install them by running:\ninstall.packages(c(\"samplr\", \"abc\", \"tidyverse\", \"patchwork\"))\non your R console.\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
   },
   {
     "objectID": "people.html",
@@ -245,32 +231,18 @@
     "text": "Guest Speakers\n\nBob Rehder\n\n\n\nBob Rehder is a Professor in the Psychology Department at New York University. His work spans the field of higher order cognition, including topics such as categorization and category learning, causal learning and reasoning, knowledge representation, explanation, skill acquisition, reinforcement learning, and dynamic control. An important strand of his work is mathematical and computational modeling, including the connectionist and probabilistic (a.k.a., rational) models.\n\n\n\nNeil Bramley\n\n\n\nNeil is a Reader in Cognitive Psychology at the University of Edinburgh. He studies how people represent and incrementally revise their causal models of world, plus how they use these models (boundedly and imperfectly) to plan, imagine, explain, blame and solve problems. He generally uses interactive experiments and games combined with computational modelling to investigate these issues. In recent work, Neil is using sequential sampling over programs as a framework for understanding both creative thinking and collective innovation."
   },
   {
-    "objectID": "requirements.html",
-    "href": "requirements.html",
-    "title": "Workshop Prerequisites",
+    "objectID": "glossary.html",
+    "href": "glossary.html",
+    "title": "Glossary",
     "section": "",
-    "text": "Before the workshop, please install the R programming language in your machine. An IDE such as RStudio is recommended but not necessary.\nThe workshop will make use of the following packages for computations: samplr, abc; and these packages for plotting purposes: tidyverse, patchwork. You can install them by running:\ninstall.packages(c(\"samplr\", \"abc\", \"tidyverse\", \"patchwork\"))\non your R console.\nIf you have issues installing these, please email Lucas Castillo (lucas.castillo@warwick.ac.uk)."
+    "text": "Acceptance Ratio\n\nThe proportion of proposals that are added to the chain in the acceptance step. For a Gaussian target, the optimal ratio is 0.234.\n\nApproximate Bayesian Computation (ABC)\n\nA likelihood-free method for inference: data are simulated with parameters chosen with the prior, and simulations too dissimilar to the observed data are discarded (Sisson et al., 2019; Turner & Van Zandt, 2012). In the workshop we used the abc package (Csilléry et al., 2012).\n\nAutocorrelated Bayesian Sampler (ABS)\n\nA model in which judgements come from autocorrelated MCMC samples rather than independent ones, giving a single account of probability judgements, estimates, choices, confidence judgements, confidence intervals, and response times (Zhu et al., 2024).\n\nAnchoring\n\nPsychological phenomenon by which estimates are pulled towards values seen before them, even if these cues are irrelevant (Strack & Mussweiler, 1997; Tversky & Kahneman, 1974). In sampling accounts this is explained by the MCMC chain starting from the cued value and few samples being drawn (Lieder et al., 2018). If co-occurs with its opposite, repulsion (Spicer et al., 2022).\n\nAutocorrelated Proposals\n\nOne of the qualitative features that compose the available MCMC algorithms in the samplr package, which can be used to avoid random-walk behaviour. See RECHMC\n\nAutocorrelation\n\nWhen each sample (or response) resembles the ones before it rather than being independent. A key property of MCMC is that its samples will be autocorrelated (Brooks et al., 2011).\n\nBayesian inference\n\nCombining a prior (existing expectations or biases) with a likelihood (from the incoming stimulus) to obtain a posterior (the resulting perception or judgment), via Bayes’ rule. Computing it exactly is usually intractable, which is what motivates sampling.\n\nDrift Diffusion Model (DDM)\n\nModels a choice and its response time as noisy evidence accumulating like a biased random walk until it crosses a decision threshold (Ratcliff et al., 2016; Ratcliff & Rouder, 1998)."
   },
   {
-    "objectID": "slides/1-intro.html#about-the-workshop",
-    "href": "slides/1-intro.html#about-the-workshop",
-    "title": "Autocorrelated Sampling in Cognition",
-    "section": "About the workshop",
-    "text": "About the workshop\nWebsite\n\n\nhttps://lucas-castillo.github.io/mcmc-workshop/\n\nMaterials\nSchedule\netc."
-  },
-  {
-    "objectID": "slides/1-intro.html#about-the-workshop-1",
-    "href": "slides/1-intro.html#about-the-workshop-1",
-    "title": "Autocorrelated Sampling in Cognition",
-    "section": "About the workshop",
-    "text": "About the workshop\nSchedule\n\n\n\nTime\n\n\n\n\n\n11.05 - 11.45\nAn Introduction to MCMC\n\n\n11.45 - 12.40\nThe samplr package\n\n\n12.40 - 13:10\nABS: A cognitive model using MCMC\n\n\n13:10 - 13:25\nPart 1 Wrap-Up\n\n\n13:25 - 13:55\nBreak\n\n\n13:55 - 14:25\nUsing ABC for simulation-based inference\n\n\n14:25 - 14:35\nFurther reading on SBI\n\n\n14:35 - 14:55\nFuture Directions\n\n\n14:55 - 15:00\nFinal Wrap-Up"
-  },
-  {
-    "objectID": "slides/1-intro.html#about-the-workshop-2",
-    "href": "slides/1-intro.html#about-the-workshop-2",
-    "title": "Autocorrelated Sampling in Cognition",
-    "section": "About the workshop",
-    "text": "About the workshop\nPeople\n\n\nOrganisers\n\n\n\n\n\n\n\nDr. Lucas Castillo\n\n\n\nDr. C. Stella Qian\n\n\n\nProf. Adam Sanborn\n\n\n\n\n\nGuest Speakers\n\n\n\n\n\n\n\nDr. Jake Spicer"
+    "objectID": "glossary.html#sampling-algorithms-and-their-qualitative-features",
+    "href": "glossary.html#sampling-algorithms-and-their-qualitative-features",
+    "title": "Glossary",
+    "section": "Sampling algorithms and their qualitative features",
+    "text": "Sampling algorithms and their qualitative features\n\n\n\n\n\n\n\n\n\n\nAlgorithm\nsamplr function\nM. Chains\nGradients\nAutoc. Proposals\n\n\n\n\nMetropolis Hastings (MH) (Hastings, 1970)\nsampler_mh()\n❌\n❌\n❌\n\n\nMetropolis-coupled MCMC (MC\\(^3\\)) (Geyer, 1991)\nsampler_mc3()\n✅\n❌\n❌\n\n\nHamiltonian Monte Carlo (HMC) (Neal, 2011)\nsampler_hmc()\n❌\n✅\n❌\n\n\nRECMH*\nsampler_mh(alpha=)\n❌\n❌\n✅\n\n\nMCHMC\nsampler_mchmc()\n✅\n✅\n❌\n\n\nRECMC3*\nsampler_mc3(alpha=)\n✅\n❌\n✅\n\n\nRECHMC (Horowitz, 1991)\nsampler_rec()\n❌\n✅\n✅\n\n\nMCREC\nsampler_mcrec()\n✅\n✅\n✅\n\n\n\n* Use these algorithms by setting the alpha parameter to a value other than 0 in the sampler_mh() and sampler_mc3() functions respectively."
   },
   {
     "objectID": "slides/3-abs.html#anchoring-example",
@@ -291,35 +263,35 @@
     "href": "slides/3-abs.html#object-oriented-programming",
     "title": "The Autocorrelated Bayesian Sampler",
     "section": "Object-Oriented Programming",
-    "text": "Object-Oriented Programming\n\n\nMake a new instance of the model\n\n\nmyModel &lt;- Zhu23ABS$new(...)\n\n\n\n\nSample from the model\n\n\nmyModel$simulate(...)\n\n\n\n\nLook at results\n\n\nmyModel$sim_results"
+    "text": "Object-Oriented Programming\n\n\nMake a new instance of the model\n\n\nmyModel &lt;- Zhu23ABS$new(...)\n\n\n\n\nSample from the model\n\n\nmyModel$simulate(...)\n\n\n\n\nLook at results\n\n\nmyModel$sim_results\n\n\n\n\n\n\n\n\n\nNote\n\n\nFollow along with 3.abs.R file."
   },
   {
     "objectID": "slides/3-abs.html#making-a-new-instance-with-new",
     "href": "slides/3-abs.html#making-a-new-instance-with-new",
     "title": "The Autocorrelated Bayesian Sampler",
     "section": "Making a new instance with $new()",
-    "text": "Making a new instance with $new()\n\n\n\nABS uses MC3 as the MCMC sampler (MH + Multiple Chains)\n\n\nTarget distribution is Gaussian, centred at the stimulus mean.\n\n\nParameters:\n\nwidth: Width of proposal distribution\nn_chains: Number of Chains\ndistr_name: Must be \"norm\"\ndistr_params: Width of the posterior distribution.\n\n\n\nThe decision time for a trial will be \\(t \\sim \\text{Erlang}(N, \\lambda) + n.d.t.\\)\n\n\n\\(n.d.t.\\) either fixed (when s_nd_time = 0) or variable (\\(n.d.t. \\sim \\mathcal U (nd, nd+s\\_nd)\\).\n\n\nlambda: Parameter in Erlang distribution\nnd_time\ns_nd_time\n\n\n\n\nmyModel &lt;- Zhu23ABS$new(\n  width = 25, \n  n_chains = 6, \n  distr_name = \"norm\", \n  distr_params = 30, \n  lambda = 4, \n  nd_time = 1, \n  s_nd_time = 0\n)"
+    "text": "Making a new instance with $new()\n\n\n\nABS uses MC3 as the MCMC sampler (MH + Multiple Chains)\n\n\nTarget distribution is Gaussian, centred at the stimulus mean.\n\n\nParameters:\n\nwidth: Width of proposal distribution\nn_chains: Number of Chains\ndistr_name: Must be \"norm\"\ndistr_params: Width of the posterior distribution.\n\n\n\nThe decision time for a trial will be \\(t \\sim \\text{Erlang}(N, \\lambda) + n.d.t.\\)\n\n\n\\(n.d.t.\\) either fixed (when s_nd_time = 0) or variable (\\(n.d.t. \\sim \\mathcal U (nd, nd+s\\_nd)\\).\n\n\nlambda: Parameter in Erlang distribution\nnd_time\ns_nd_time\n\n\n\\[\\mathbb E (Erlang) = \\frac N \\lambda\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmyModel &lt;- Zhu23ABS$new(\n  width = 25, \n  n_chains = 6, \n  distr_name = \"norm\", \n  distr_params = 30, \n  lambda = 4, \n  nd_time = 1, \n  s_nd_time = 0\n)"
   },
   {
     "objectID": "slides/3-abs.html#simulating-results-with-simulate",
     "href": "slides/3-abs.html#simulating-results-with-simulate",
     "title": "The Autocorrelated Bayesian Sampler",
     "section": "Simulating results with $simulate()",
-    "text": "Simulating results with $simulate()\n\n\n\nFor now, set stopping rule to “fixed” (I’ll explain this later!)\nSample \\(N\\) samples\ntrial_stim: Mean of the stimulus (in our example 24 - we can add multiple trials)\n\n\n\n\nmyModel$simulate(\n  stopping_rule = \"fixed\", \n  n_sample=4, \n  trial_stim=c(24, 22, 27)\n)"
+    "text": "Simulating results with $simulate()\n\n\n\nFor now, set stopping rule to “fixed” (I’ll explain this later!)\nSample \\(N\\) samples\ntrial_stim: Mean of the stimulus (in our example 24 - we can add multiple trials)\nstart_point: First sample for each trial\n\n\n\n\nmyModel$simulate(\n  stopping_rule = \"fixed\",\n  n_sample=4,\n  trial_stim=c(24, 22, 27), \n  start_point=c(12, 12, 12)\n)"
   },
   {
     "objectID": "slides/3-abs.html#results",
     "href": "slides/3-abs.html#results",
     "title": "The Autocorrelated Bayesian Sampler",
     "section": "Results",
-    "text": "Results\n\nExamining results\n\nprint(myModel$sim_results)\n\n  trial                   samples stimulus   rt point_est\n1     1 5.21, -2.49, 11.87, -2.49       24 1.77     -2.49\n2     2   4.72, 0.57, 17.19, 7.81       22  1.7      7.81\n3     3 17.53, 6.37, 14.93, 30.69       27 2.39     30.69\n\n\n\n\nAdding confidence intervals\n\nmyModel$confidence_interval(conf_level = .75)\n\n\n\n  trial samples stimulus   rt point_est  ci_l  ci_u\n1     1     ...       24 1.77     -2.49 -2.49  9.37\n2     2     ...       22  1.7      7.81  2.13 13.67\n3     3     ...       27 2.39     30.69  9.58 25.76"
+    "text": "Results\n\nExamining results\n\nprint(myModel$sim_results)\n\n  trial                   samples stimulus   rt point_est\n1     1  12.00, 18.65, 4.13, 1.86       24 2.31      1.86\n2     2  12.00, 8.02, 8.34, 10.53       22 1.63     10.53\n3     3 12.00, 7.45, 10.59, 20.10       27 3.12      20.1\n\n\n\n\nAdding confidence intervals\n\nmyModel$confidence_interval(conf_level = .75)\n\n\n\n  trial samples stimulus   rt point_est ci_l  ci_u\n1     1     ...       24 2.31      1.86 2.71 16.16\n2     2     ...       22 1.63     10.53 8.14 11.45\n3     3     ...       27 3.12      20.1 8.63 17.06"
   },
   {
     "objectID": "slides/3-abs.html#practice",
     "href": "slides/3-abs.html#practice",
     "title": "The Autocorrelated Bayesian Sampler",
     "section": "Practice",
-    "text": "Practice\n\n\nMake ABS estimate the height of the Cologne cathedral with an anchor of 320m (the correct height is 127m).\n\nHow long does it take, when \\(\\lambda = 4\\) and \\(N_{samples} = 10\\)?\nWhat is the 80% confidence interval?\n\n\n\nEstimate: 300\n80% Confidence interval: 300-315\nRT: 4.33s\n\n\n\n\n\nmodel &lt;- Zhu23ABS$new(\n  width = 25, \n  n_chains = 6, \n  distr_name = \"norm\", \n  distr_params = 30, \n  lambda = 4, \n  nd_time = 1, \n  s_nd_time = 0\n)\nmodel$simulate(\n  stopping_rule = \"fixed\", \n  start_point = 320, \n  n_sample=10, \n  trial_stim = 127\n)\nmodel$confidence_interval(.8)\nmodel$sim_results"
+    "text": "Practice\n\n\nMake ABS estimate the height of the Cologne cathedral with an anchor of 320m (the correct height is 127m).\n\nHow long does it take, when \\(\\lambda = 4\\) and \\(N_{samples} = 10\\)?\nWhat is the 80% confidence interval?\n\n\n\nEstimate: 300\n80% Confidence interval: 300-315\nRT: 4.33s\n\n\n\n\n\nmodel &lt;- Zhu23ABS$new(\n  width = 25,\n  n_chains = 6,\n  distr_name = \"norm\",\n  distr_params = 30,\n  lambda = 4,\n  nd_time = 1,\n  s_nd_time = 0\n)\nmodel$simulate(\n  stopping_rule = \"fixed\",\n  start_point = 320,\n  n_sample=10,\n  trial_stim = 127\n)\nmodel$confidence_interval(.8)\nmodel$sim_results"
   },
   {
     "objectID": "slides/3-abs.html#relative-stopping-rule",
@@ -333,7 +305,7 @@
     "href": "slides/3-abs.html#simulate-with-a-relative-stopping-rule",
     "title": "The Autocorrelated Bayesian Sampler",
     "section": "$simulate() with a relative stopping rule",
-    "text": "$simulate() with a relative stopping rule\n\n\n\n2-alternative-forced-choice task (e.g., random dot motion task)\n\n\nModel counts difference in evidence between the two hypotheses and terminates whenever it exceeds a threshold.\n\n\nParameters:\n\ndelta: threshold of the accumulated difference\ndec_bdry: decision boundary that splits the posterior\nprior_on_resp: the prior on responses, which determines the prior preference for a response (Beta).\ndiscrim: discriminabilty, determines the mean values of the distributions for the posterior of hypotheses.\n\n\n\n\n\nmyModel$simulate(\n  stopping_rule = \"relative\", \n  delta = 2, \n  dec_bdry = 0, \n  discrim = 3, \n  prior_on_resp=c(1,1),\n  trial_stim = factor(\n    c(\"left\", \"right\", \"left\"))\n)"
+    "text": "$simulate() with a relative stopping rule\n\n\n\n2-alternative-forced-choice task (e.g., random dot motion task)\n\n\nModel counts difference in evidence between the two hypotheses and terminates whenever it exceeds a threshold.\n\n\nParameters:\n\ndelta: threshold of the accumulated difference\ndec_bdry: decision boundary that splits the posterior\nprior_on_resp: the prior on responses, which determines the prior preference for a response (Beta).\ndiscrim: discriminabilty, determines the mean values of the distributions for the posterior of hypotheses.\n\n\n\n\n\nmyModel$simulate(\n  stopping_rule = \"relative\",\n  delta = 2,\n  dec_bdry = 0,\n  discrim = 3,\n  prior_on_resp=c(1,1),\n  trial_stim = factor(\n    c(\"left\", \"right\", \"left\"))\n)"
   },
   {
     "objectID": "slides/3-abs.html#practice-1",
@@ -347,7 +319,7 @@
     "href": "slides/3-abs.html#my-solution",
     "title": "The Autocorrelated Bayesian Sampler",
     "section": "My solution",
-    "text": "My solution\n\n\n\nSetup\n\nset.seed(1)\nstimuli &lt;- factor(\n  sample(c(\"left\", \"right\"), 100, T)\n)\nmyModel &lt;- Zhu23ABS$new( \n  width = 2, \n  n_chains = 6, \n  distr_name = \"norm\", \n  distr_params = 2, \n  lambda = 4, \n  nd_time = 1, \n  s_nd_time = 0\n)\n\n\n\n\nSlow\n\nslow &lt;- myModel$simulate(\n  stopping_rule = \"relative\", \n  delta = 10, \n  dec_bdry = 0, \n  discrim = 3, \n  prior_on_resp=c(1,1),\n  trial_stim = stimuli\n)$sim_results\n\n\n\nFast\n\nmyModel$reset_sim_results()\nfast &lt;- myModel$simulate(\n  stopping_rule = \"relative\", \n  delta = 2, \n  dec_bdry = 0, \n  discrim = 3, \n  prior_on_resp=c(1,1),\n  trial_stim = stimuli\n)$sim_results"
+    "text": "My solution\n\n\n\nSetup\n\nset.seed(1)\nstimuli &lt;- factor(\n  sample(c(\"left\", \"right\"), 100, T)\n)\nmyModel &lt;- Zhu23ABS$new(\n  width = 2,\n  n_chains = 6,\n  distr_name = \"norm\",\n  distr_params = 2,\n  lambda = 4,\n  nd_time = 1,\n  s_nd_time = 0\n)\n\n\n\n\nSlow\n\nslow &lt;- myModel$simulate(\n  stopping_rule = \"relative\",\n  delta = 10,\n  dec_bdry = 0,\n  discrim = 3,\n  prior_on_resp=c(1,1),\n  trial_stim = stimuli\n)$sim_results\n\n\n\nFast\n\nmyModel$reset_sim_results()\nfast &lt;- myModel$simulate(\n  stopping_rule = \"relative\",\n  delta = 2,\n  dec_bdry = 0,\n  discrim = 3,\n  prior_on_resp=c(1,1),\n  trial_stim = stimuli\n)$sim_results"
   },
   {
     "objectID": "slides/3-abs.html#my-solution-1",
@@ -357,32 +329,18 @@
     "text": "My solution\n\n\n\nmean(fast$rt);\n\n[1] 1.627338\n\nmean(fast$accuracy)\n\n[1] 0.64\n\n\n\n\nmean(slow$rt);\n\n[1] 5.543572\n\nmean(slow$accuracy)\n\n[1] 0.95"
   },
   {
-    "objectID": "slides/3-abs.html#part-1-wrap-up-1",
-    "href": "slides/3-abs.html#part-1-wrap-up-1",
+    "objectID": "slides/3-abs.html#interim-wrap-up",
+    "href": "slides/3-abs.html#interim-wrap-up",
     "title": "The Autocorrelated Bayesian Sampler",
-    "section": "Part 1 Wrap-up",
-    "text": "Part 1 Wrap-up\nSo far\n\nLearned about MCMC and past applications to cognitive modelling\nLearned about how to use the samplr package to:\n\n\nproduce samples from different MCMC algorithms\nproduce responses from the ABS cognitive framework (Zhu et al., 2024)\n\n\nAfter the break\nLearn how to fit these models to data. We need:\n\nsome data!\nsome simulated data from models."
-  },
-  {
-    "objectID": "slides/3-abs.html#experiment",
-    "href": "slides/3-abs.html#experiment",
-    "title": "The Autocorrelated Bayesian Sampler",
-    "section": "Experiment",
-    "text": "Experiment\n\nCastillo et al. (2026) asked participants to say heights of people in the UK at random.\n\n\nPeople are pretty bad at producing random sequences\n\n\nInstead, they show patterns that can be used to identify which MCMC sampler best describes their item production\n\n\nInstructions\n\n\n\n\n\n\n\n\n\nYour task is to say the height of one of the people in the picture, chosen at random, every time you are prompted to do so. To do this, imagine:\n\nShuffling the papers in the bag\nChoosing a random paper from the bag and reading the height.\nReturning the paper to the bag\nRepeating the process"
-  },
-  {
-    "objectID": "slides/3-abs.html#last-tasks-before-the-break",
-    "href": "slides/3-abs.html#last-tasks-before-the-break",
-    "title": "The Autocorrelated Bayesian Sampler",
-    "section": "Last tasks before the break",
-    "text": "Last tasks before the break\n\n\n\nGetting Data\n\nGo to https://rg-exp.netlify.app/\nAdd a pseudonym (so that you know which is your data!)\nDo a typed random generation task: 150 heights (as described before)\nSend me an email with the .csv results (lucas.castillo@warwick.ac.uk)\n(We’ll share everyone’s data and that’s what we’ll fit in part 2)\n\n\n\n\nSimulating Data\n\nAsk MCMC algorithms to sample from \\(\\mathcal N (\\mu=176.4, \\sigma=12)\\).\nPrior over models is \\(1/N\\).\nPrior over parameters (prior.R in website).\nThe objective is to have a big matrix of simulated data.\n\n\n\n\n\n\n\n\nHelp!\n\n\nIf this is too much:\n\nExample code in website to run directly\nPre-simulated data also in website (you can load it on R with myVar &lt;- readRDS(file.rds))"
+    "section": "Interim Wrap-up",
+    "text": "Interim Wrap-up\nSo far\n\nLearned about MCMC and past applications to cognitive modelling\nLearned about how to use the samplr package to:\n\n\nproduce samples from different MCMC algorithms\nproduce responses from the ABS cognitive framework (Zhu et al., 2024)\n\n\nRest of the workshop\n\nLearn how to fit these models to data.\nDiscuss future directions"
   },
   {
     "objectID": "slides/3-abs.html#references",
     "href": "slides/3-abs.html#references",
     "title": "The Autocorrelated Bayesian Sampler",
     "section": "References",
-    "text": "References\n\n\nCastillo, L., León-Villagrá, P., Falbén, J. K., Chater, N., & Sanborn, A. N. (2026). Random generation is what comes to mind in naturalistic settings. Cognition, 274, 106554. https://doi.org/10.1016/j.cognition.2026.106554\n\n\nZhu, J.-Q., Sundh, J., Spicer, J., Chater, N., & Sanborn, A. N. (2024). The autocorrelated Bayesian sampler: A rational process for probability judgments, estimates, confidence intervals, choices, confidence judgments, and response times. Psychological Review, 131(2), 456–493. https://doi.org/10.1037/rev0000427"
+    "text": "References\n\n\nZhu, J.-Q., Sundh, J., Spicer, J., Chater, N., & Sanborn, A. N. (2024). The autocorrelated Bayesian sampler: A rational process for probability judgments, estimates, confidence intervals, choices, confidence judgments, and response times. Psychological Review, 131(2), 456–493. https://doi.org/10.1037/rev0000427"
   },
   {
     "objectID": "slides/4-abc.html#the-challenge",
@@ -396,14 +354,14 @@
     "href": "slides/4-abc.html#approximate-bayesian-computation",
     "title": "Fitting MCMC models with Approximate Bayesian Computation",
     "section": "Approximate Bayesian Computation",
-    "text": "Approximate Bayesian Computation\n\n\\[\np(\\theta|D) \\approx \\frac 1 N \\sum_{i=1}^N \\delta (\\mathcal M(\\theta), y_{obs})\\ \\text{for large}\\ N\n\\]\n\n\n\\(\\delta(a,b): 1\\ \\text{if}\\ a = b\\ \\text{else}\\ 0\\)\n\n\nExample\nQ: I rolled \\(N\\) 6-sided dice and got an 11. How many dice did I roll?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Sisson et al., 2019; Turner & Van Zandt, 2012)"
+    "text": "Approximate Bayesian Computation\n\n\\[\np(\\theta|D) \\approx \\frac 1 N \\sum_{i=1}^N \\delta (\\mathcal M(\\theta), y_{obs})\\ \\text{for large}\\ N\n\\]\n\n\n\\(\\delta(a,b): 1\\ \\text{if}\\ a = b\\ \\text{else}\\ 0\\)\n\n\nExample\nQ: I rolled \\(N\\) 6-sided dice and got an 11. How many dice did I roll?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Sisson et al., 2019; Turner & Van Zandt, 2012)"
   },
   {
     "objectID": "slides/4-abc.html#computation-accuracy-trade-offs",
     "href": "slides/4-abc.html#computation-accuracy-trade-offs",
     "title": "Fitting MCMC models with Approximate Bayesian Computation",
     "section": "Computation-Accuracy Trade-offs",
-    "text": "Computation-Accuracy Trade-offs\n\n\n\nTolerance\n\nIn the previous example, I simulated 100,000 rolls.\n\n\nOnly 2,895 (\\(2.9\\%\\)) equalled 11 (throw away \\(97\\%\\) of the data).\n\n\nWe can instead keep \\(11 \\pm \\epsilon\\).\n\n\nFor \\(\\epsilon = 1\\), we keep \\(8.68\\%\\) of data instead."
+    "text": "Computation-Accuracy Trade-offs\n\n\n\nTolerance\n\nIn the previous example, I simulated 1,000,000 rolls.\n\n\nOnly 29,371 (\\(2.9\\%\\)) equalled 11 (throw away \\(97\\%\\) of the data).\n\n\nWe can instead keep \\(11 \\pm \\epsilon\\).\n\n\nFor \\(\\epsilon = 1\\), we keep \\(8.76\\%\\) of data instead."
   },
   {
     "objectID": "slides/4-abc.html#computation-accuracy-trade-offs-1",
@@ -411,6 +369,13 @@
     "title": "Fitting MCMC models with Approximate Bayesian Computation",
     "section": "Computation-Accuracy Trade-offs",
     "text": "Computation-Accuracy Trade-offs\nSummary statistics\n\n\n\nFor high-dimensional data it is difficult to be identical or very similar (e.g. random generation data is 150-dimensional).\nInstead use a function \\(S(\\cdot)\\) that reduces the dimensionality of the data\nEvaluate similarity in summary space.\nIdeally, the choice of summary statistics should be sufficient (very difficult in practice): \\[\np(\\theta|S) = p(\\theta|S, y_{obs})\n\\]\n\n\n\n\n\n\n\n\n\nPlan\n\n\n\nShow you some summary statistics of your data\n\n\nHow close were you to true randomness?\n\n\nWe fit the models to the data\n\n\nWhich model describes your performance best?\n\n\nPointers to parameter estimation and other simulation-based approaches."
+  },
+  {
+    "objectID": "slides/4-abc.html#experiment",
+    "href": "slides/4-abc.html#experiment",
+    "title": "Fitting MCMC models with Approximate Bayesian Computation",
+    "section": "Experiment",
+    "text": "Experiment\n\nCastillo et al. (2026) asked participants to say heights of people in the UK at random.\n\n\nPeople are pretty bad at producing random sequences\n\n\nInstead, they show patterns that can be used to identify which MCMC sampler best describes their item production\n\n\nInstructions\n\n\n\n\n\n\n\n\n\nYour task is to say the height of one of the people in the picture, chosen at random, every time you are prompted to do so. To do this, imagine:\n\nShuffling the papers in the bag\nChoosing a random paper from the bag and reading the height.\nReturning the paper to the bag\nRepeating the process"
   },
   {
     "objectID": "slides/4-abc.html#random-generation-summary-statistics",
@@ -424,46 +389,46 @@
     "href": "slides/4-abc.html#your-results",
     "title": "Fitting MCMC models with Approximate Bayesian Computation",
     "section": "Your Results",
-    "text": "Your Results\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost random\n\n\n\n\n[1] \"lucas\""
+    "text": "Your Results\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost random\n\n\n\n\n[1] \"🦒\""
   },
   {
     "objectID": "slides/4-abc.html#from-summaries-to-model-inference",
     "href": "slides/4-abc.html#from-summaries-to-model-inference",
     "title": "Fitting MCMC models with Approximate Bayesian Computation",
     "section": "From Summaries to Model Inference",
-    "text": "From Summaries to Model Inference\n\n\nCalculate summary statistics from the simulated data and observed data\n\n\n\n\nIn the website you have a summary_statistics.R file which provides the all_measures() function.\n\n\nsource(\"summary_statistics.R\")\n\n\nsequence &lt;- sample(1:10, 100, T)\nall_measures(sequence)\n\n          R        A       TPF        D            S       RNG gzip\n1 0.1010101 0.247191 0.5816327 3.348315 -0.002693658 0.2160881 1.01\n\n\n\n\nI have also placed the data from participants today.\n\ndata &lt;- readRDS(data.rds)\nCleaned: removed items 4SD away (e.g. “1680”) in response2\n\nEnd product is a data frame for participants and models\n\n\n\nobs_summaries[1:2,]\n\n# A tibble: 2 × 9\n  id_number pseudonym      R     A   TPF     D       S   RNG  gzip\n      &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1      5096 lucas     0.0137 0.188 0.5    11.5 0.00155 0.151  1.30\n2      5196 lks       0.0135 0.192 0.503  11.4 0.00155 0.150  1.30"
+    "text": "From Summaries to Model Inference\n\n\n\nCalculate summary statistics from the simulated data and observed data\n\n\n\nWe’ve computed these beforehand!\n\n\nIn the files you can find:\n\nsummaries from participants: data/obs_summaries.rds\n\nCleaned: removed items 4SD away (e.g. “1680”) in response2\n\nsummaries from models: simultaions/sim_summaries.rds\n\nEnd product is a data frame for participants and models\n\n\nRemoved values:\n\n\n[1]   16 1661   19   16   14   18   14 1687 1598"
   },
   {
-    "objectID": "slides/4-abc.html#from-summaries-to-model-inference-my-solution",
-    "href": "slides/4-abc.html#from-summaries-to-model-inference-my-solution",
+    "objectID": "slides/4-abc.html#summary-dataframes",
+    "href": "slides/4-abc.html#summary-dataframes",
     "title": "Fitting MCMC models with Approximate Bayesian Computation",
-    "section": "From Summaries to Model Inference (my solution)",
-    "text": "From Summaries to Model Inference (my solution)\n\nid_numbers &lt;- unique(DF$id_number)\nobs_summaries &lt;- data.frame()\nfor (i in id_numbers){\n  result &lt;- cbind(\n    data.frame(\n      id_number = i,\n      pseudonym = DF$pseudonym[DF$id_number == i][1]\n    ),\n    all_measures(DF$response2[DF$id_number == i])\n  )\n  obs_summaries &lt;- rbind(\n    obs_summaries, result\n  )\n}"
+    "section": "Summary dataframes",
+    "text": "Summary dataframes\n\nobs_summaries[1:2,]\n\n# A tibble: 2 × 9\n  id_number pseudonym      R      A   TPF     D       S    RNG  gzip\n      &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1        96 alligator 0      0.129  0.565  10.1 0.00416 0.108   1.61\n2      1234 🦒        0.0205 0.0769 0.632  17.3 0.00309 0.0228  1.34\n\nsim_summaries[1:2,]\n\n  models    sigma epsilon  L nChains     alpha         R      A        TPF\n1     MH 35.02590     0.1 33       6 0.9661909 0.1409396 0.1875 0.41216216\n2 RECHMC 35.08824     0.1  3       6 0.8357762 0.7986577 1.0000 0.02702703\n         D             S        RNG      gzip\n1 4.507812  0.0002089995 0.08906698 1.2266667\n2 1.000000 -0.0006306943 0.78358612 0.5066667"
   },
   {
     "objectID": "slides/4-abc.html#inference",
     "href": "slides/4-abc.html#inference",
     "title": "Fitting MCMC models with Approximate Bayesian Computation",
     "section": "Inference",
-    "text": "Inference\n\nobs_summaries[1:2,]\n\n  id_number pseudonym          R         A       TPF        D           S\n1      5096     lucas 0.01369863 0.1875000 0.5000000 11.52778 0.001552160\n2      5196       lks 0.01351351 0.1917808 0.5034014 11.39041 0.001553448\n        RNG     gzip\n1 0.1506745 1.302013\n2 0.1497664 1.302013\n\nsim_summaries[1:2,]\n\n  models    sigma epsilon  L nChains     alpha         R      A        TPF\n1     MH 35.02590     0.1 33       6 0.9661909 0.1409396 0.1875 0.41216216\n2 RECHMC 35.08824     0.1  3       6 0.8357762 0.7986577 1.0000 0.02702703\n         D             S        RNG      gzip\n1 4.507812  0.0002089995 0.08906698 1.2266667\n2 1.000000 -0.0006306943 0.78358612 0.5066667\n\n\n\n\n\n\n\n\n\nIf you don’t have these yet…\n\n\nYou can find files in the website!"
+    "text": "Inference\n\n\nSelect a subset of simulations where the distance between simulations and observed data is smaller than a tolerance \\(\\epsilon\\).\n\n\nGetting the mean and SD of the simulated summaries (\\(M_s\\), \\(SD_s\\))\nStandardizing observed and simulated summaries with those values (\\((S_{obs} - M_s) / SD_s\\))\nFor each person, calculate Euclidean distance between each simulated row and observed summaries\nFor that person, look at only the closest \\(10\\%\\) simulations.\nWhat’s the proportion of models in that subset?\n\n\nWe use the abc package to do that for us.\n\n\n\nlibrary(abc)\nfit &lt;- abc(\n  target= obs_summaries[obs_summaries$pseudonym == \"lks\", 3:9],\n  param = sim_summaries$models,\n  sumstat = sim_summaries[, 7:13],\n  tol = .05,\n  method = \"rejection\"\n)\n\n\n\n\ntable(fit$unadj.values) / sum(table(fit$unadj.values))\n\n\n   HMC    MC3  MCHMC  MCREC RECHMC RECMC3 \n0.0116 0.5212 0.0482 0.0212 0.0032 0.3946"
+  },
+  {
+    "objectID": "slides/4-abc.html#practice",
+    "href": "slides/4-abc.html#practice",
+    "title": "Fitting MCMC models with Approximate Bayesian Computation",
+    "section": "Practice",
+    "text": "Practice\nFind out which model best fits your data Use 4.abc.R."
   },
   {
     "objectID": "slides/4-abc.html#inference-1",
     "href": "slides/4-abc.html#inference-1",
     "title": "Fitting MCMC models with Approximate Bayesian Computation",
     "section": "Inference",
-    "text": "Inference\n\n\nSelect a subset of simulations where the distance between simulations and observed data is smaller than a tolerance \\(\\epsilon\\).\n\n\nGetting the mean and SD of the simulated summaries (\\(M_s\\), \\(SD_s\\))\nStandardizing observed and simulated summaries with those values (\\((S_{obs} - M_s) / SD_s\\))\nFor each person, calculate Euclidean distance between each simulated row and observed summaries\nFor that person, look at only the closest \\(10\\%\\) simulations.\nWhat’s the proportion of models in that subset?\n\n\nWe use the abc package to do that for us.\n\n\n\nlibrary(abc)\nfit &lt;- abc(\n  target= obs_summaries[obs_summaries$pseudonym == \"lks\", 3:9], \n  param = sim_summaries$models, \n  sumstat = sim_summaries[, 7:13], \n  tol = .1, \n  method = \"rejection\"\n)\n\n\n\n\ntable(fit$unadj.values) / sum(table(fit$unadj.values))\n\n\n   HMC    MC3  MCHMC  MCREC RECHMC RECMC3 \n0.0317 0.4657 0.0898 0.0416 0.0096 0.3616"
+    "text": "Inference\nDo this for every participant then combine the likelihoods\n\n\ndf &lt;- data.frame()\nfor (i in unique(obs_summaries$id_number)){\n  fit &lt;- abc(\n    target= obs_summaries[obs_summaries$id_number == i, 3:9],\n    param = sim_summaries$models,\n    sumstat = sim_summaries[, 7:13],\n    tol = .05, method = \"rejection\"\n  )\n  result &lt;- cbind(\n    data.frame(\n      id_number=i,\n      pseudonym=obs_summaries$pseudonym[obs_summaries$id_number == i]\n    ),\n    data.frame(table(fit$unadj.values) / sum(table(fit$unadj.values)))\n  )\n  df &lt;- rbind(df, result)\n}\n\ndf %&gt;%\n  group_by(Var1) %&gt;%\n  summarise(LL = sum(log(Freq))) %&gt;%\n  mutate(BF = exp(LL - min(LL)))\n\n# A tibble: 8 × 3\n  Var1       LL      BF\n  &lt;fct&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n1 HMC    -31.1  1.15e 4\n2 MC3    -16.6  2.32e10\n3 MCHMC  -20.1  6.41e 8\n4 MCREC  -27.9  2.80e 5\n5 RECHMC -40.4  1   e 0\n6 RECMC3 -19.3  1.54e 9\n7 MH      -6.76 4.19e14\n8 RECMH   -8.65 6.33e13"
   },
   {
     "objectID": "slides/4-abc.html#inference-2",
     "href": "slides/4-abc.html#inference-2",
-    "title": "Fitting MCMC models with Approximate Bayesian Computation",
-    "section": "Inference",
-    "text": "Inference\nDo this for every participant then combine the likelihoods\n\n\ndf &lt;- data.frame()\nfor (i in unique(obs_summaries$id_number)){\n  fit &lt;- abc(\n    target= obs_summaries[obs_summaries$id_number == i, 3:9], \n    param = sim_summaries$models, \n    sumstat = sim_summaries[, 7:13], \n    tol = .1, method = \"rejection\"\n  )\n  result &lt;- cbind(\n    data.frame(\n      id_number=i, \n      pseudonym=obs_summaries$pseudonym[obs_summaries$id_number == i]\n    ),\n    data.frame(table(fit$unadj.values) / sum(table(fit$unadj.values)))\n  )\n  df &lt;- rbind(df, result)\n}\n\ndf %&gt;% \n  group_by(Var1) %&gt;% \n  summarise(LL = sum(log(Freq))) %&gt;% \n  mutate(BF = exp(LL - min(LL)))\n\n# A tibble: 6 × 3\n  Var1      LL     BF\n  &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1 HMC    -6.97   10.8\n2 MC3    -1.52 2505. \n3 MCHMC  -4.89   86.4\n4 MCREC  -6.39   19.3\n5 RECHMC -9.35    1  \n6 RECMC3 -2.02 1517."
-  },
-  {
-    "objectID": "slides/4-abc.html#inference-3",
-    "href": "slides/4-abc.html#inference-3",
     "title": "Fitting MCMC models with Approximate Bayesian Computation",
     "section": "Inference",
     "text": "Inference"
@@ -473,7 +438,7 @@
     "href": "slides/4-abc.html#parameter-estimation",
     "title": "Fitting MCMC models with Approximate Bayesian Computation",
     "section": "Parameter Estimation",
-    "text": "Parameter Estimation\n\n\n\n\nlibrary(abc)\nfit &lt;- abc(\n  target= obs_summaries[\n    obs_summaries$pseudonym == \"lks\", 3:9\n  ], \n  param = sim_summaries[\n    sim_summaries$models == \"MC3\", \n    c(\"sigma\", \"nChains\")\n  ], \n  sumstat = sim_summaries[\n    sim_summaries$models == \"MC3\", 7:13\n  ], \n  tol = .1, \n  method = \"rejection\"\n)"
+    "text": "Parameter Estimation\n\n\n\n\nlibrary(abc)\nfit &lt;- abc(\n  target= obs_summaries[\n    obs_summaries$pseudonym == \"lks\", 3:9\n  ],\n  param = sim_summaries[\n    sim_summaries$models == \"MC3\",\n    c(\"sigma\", \"nChains\")\n  ],\n  sumstat = sim_summaries[\n    sim_summaries$models == \"MC3\", 7:13\n  ],\n  tol = .1,\n  method = \"rejection\"\n)"
   },
   {
     "objectID": "slides/4-abc.html#other-simulation-based-approaches",
@@ -501,7 +466,7 @@
     "href": "slides/4-abc.html#references",
     "title": "Fitting MCMC models with Approximate Bayesian Computation",
     "section": "References",
-    "text": "References\n\n\nBramley, N. R., Dayan, P., Griffiths, T. L., & Lagnado, D. A. (2017). Formalizing Neurath’s ship: Approximate algorithms for online causal learning. Psychological Review, 124(3), 301–338. https://doi.org/10.1037/rev0000061\n\n\nBruckner, R., Nassar, M. R., Li, S.-C., & Eppinger, B. (2025). Differences in learning across the lifespan emerge via resource-rational computations. Psychological Review. https://doi.org/10.1037/rev0000526\n\n\nCastillo, L., León-Villagrá, P., Chater, N., & Sanborn, A. N. (2024). Explaining the flaws in human random generation as local sampling with momentum. PLOS Computational Biology, 20(1), 1–24. https://doi.org/10.1371/journal.pcbi.1011739\n\n\nCastillo, L., Li, Y.-X., & Sanborn, A. N. (2025). The samplr package: A tool for modeling human cognition with sampling algorithms. https://doi.org/10.31234/osf.io/ax8hm_v2\n\n\nCranmer, K., Brehmer, J., & Louppe, G. (2020). The frontier of simulation-based inference. Proceedings of the National Academy of Sciences, 117(48), 30055–30062. https://doi.org/10.1073/pnas.1912789117\n\n\nDasgupta, I., Schulz, E., & Gershman, S. J. (2017). Where do hypotheses come from? Cognitive Psychology, 96, 1–25. https://doi.org/10.1016/j.cogpsych.2017.05.001\n\n\nDavis, Z. J., & Rehder, B. (2020). A process model of causal reasoning. Cognitive Science, 44(5), e12839.\n\n\nGershman, S. J., Vul, E., & Tenenbaum, J. B. (2012). Multistability and Perceptual Inference. Neural Computation, 24(1), 1–24. https://doi.org/10.1162/NECO_a_00226\n\n\nPudlo, P., Marin, J.-M., Estoup, A., Cornuet, J.-M., Gautier, M., & Robert, C. P. (2016). Reliable ABC model choice via random forests. Bioinformatics, 32(6), 859–866. https://doi.org/10.1093/bioinformatics/btv684\n\n\nSisson, S. A., Fan, Y., & Beaumont, M. A. (Eds.). (2019). Handbook of approximate Bayesian computation. CRC Press, Taylor & Francis Group.\n\n\nSpicer, J., Zhu, J.-Q., Chater, N., & Sanborn, A. N. (2022). Perceptual and Cognitive Judgments Show Both Anchoring and Repulsion. Psychological Science, 33(9), 1395–1407. https://doi.org/10.1177/09567976221089599\n\n\nSpicer, J., Zhu, J.-Q., Chater, N., & Sanborn, A. N. (2024). How do people predict a random walk? Lessons for models of human cognition. Psychological Review, 131(5), 1069–1113. https://doi.org/10.1037/rev0000493\n\n\nTurner, B. M., & Van Zandt, T. (2012). A tutorial on approximate Bayesian computation. Journal of Mathematical Psychology, 56(2), 69–85. https://doi.org/10.1016/j.jmp.2012.02.005\n\n\nValentin, S., Castillo, L., Sanborn, A. N., & Lucas, C. G. (2024). Distinguishing Between Process Models of Causal Learning. Proceedings of the Annual Meeting of the Cognitive Science Society, 46. https://escholarship.org/uc/item/2p43j2cw\n\n\nZhu, J.-Q., León-Villagrá, P., Chater, N., & Sanborn, A. N. (2022). Understanding the structure of cognitive noise. PLoS Computational Biology, 18(8), e1010312. https://doi.org/10.1371/journal.pcbi.1010312\n\n\nZhu, J.-Q., Sundh, J., Spicer, J., Chater, N., & Sanborn, A. N. (2024). The autocorrelated Bayesian sampler: A rational process for probability judgments, estimates, confidence intervals, choices, confidence judgments, and response times. Psychological Review, 131(2), 456–493. https://doi.org/10.1037/rev0000427"
+    "text": "References\n\n\nBramley, N. R., Dayan, P., Griffiths, T. L., & Lagnado, D. A. (2017). Formalizing Neurath’s ship: Approximate algorithms for online causal learning. Psychological Review, 124(3), 301–338. https://doi.org/10.1037/rev0000061\n\n\nBruckner, R., Nassar, M. R., Li, S.-C., & Eppinger, B. (2025). Differences in learning across the lifespan emerge via resource-rational computations. Psychological Review. https://doi.org/10.1037/rev0000526\n\n\nCastillo, L., León-Villagrá, P., Chater, N., & Sanborn, A. N. (2024). Explaining the flaws in human random generation as local sampling with momentum. PLOS Computational Biology, 20(1), 1–24. https://doi.org/10.1371/journal.pcbi.1011739\n\n\nCastillo, L., León-Villagrá, P., Falbén, J. K., Chater, N., & Sanborn, A. N. (2026). Random generation is what comes to mind in naturalistic settings. Cognition, 274, 106554. https://doi.org/10.1016/j.cognition.2026.106554\n\n\nCastillo, L., Li, Y.-X., & Sanborn, A. N. (2025). The samplr package: A tool for modeling human cognition with sampling algorithms. https://doi.org/10.31234/osf.io/ax8hm_v2\n\n\nCranmer, K., Brehmer, J., & Louppe, G. (2020). The frontier of simulation-based inference. Proceedings of the National Academy of Sciences, 117(48), 30055–30062. https://doi.org/10.1073/pnas.1912789117\n\n\nDasgupta, I., Schulz, E., & Gershman, S. J. (2017). Where do hypotheses come from? Cognitive Psychology, 96, 1–25. https://doi.org/10.1016/j.cogpsych.2017.05.001\n\n\nDavis, Z. J., & Rehder, B. (2020). A process model of causal reasoning. Cognitive Science, 44(5), e12839.\n\n\nGershman, S. J., Vul, E., & Tenenbaum, J. B. (2012). Multistability and Perceptual Inference. Neural Computation, 24(1), 1–24. https://doi.org/10.1162/NECO_a_00226\n\n\nPudlo, P., Marin, J.-M., Estoup, A., Cornuet, J.-M., Gautier, M., & Robert, C. P. (2016). Reliable ABC model choice via random forests. Bioinformatics, 32(6), 859–866. https://doi.org/10.1093/bioinformatics/btv684\n\n\nSisson, S. A., Fan, Y., & Beaumont, M. A. (Eds.). (2019). Handbook of approximate Bayesian computation. CRC Press, Taylor & Francis Group.\n\n\nSpicer, J., Zhu, J.-Q., Chater, N., & Sanborn, A. N. (2022). Perceptual and Cognitive Judgments Show Both Anchoring and Repulsion. Psychological Science, 33(9), 1395–1407. https://doi.org/10.1177/09567976221089599\n\n\nSpicer, J., Zhu, J.-Q., Chater, N., & Sanborn, A. N. (2024). How do people predict a random walk? Lessons for models of human cognition. Psychological Review, 131(5), 1069–1113. https://doi.org/10.1037/rev0000493\n\n\nTurner, B. M., & Van Zandt, T. (2012). A tutorial on approximate Bayesian computation. Journal of Mathematical Psychology, 56(2), 69–85. https://doi.org/10.1016/j.jmp.2012.02.005\n\n\nValentin, S., Castillo, L., Sanborn, A. N., & Lucas, C. G. (2024). Distinguishing Between Process Models of Causal Learning. Proceedings of the Annual Meeting of the Cognitive Science Society, 46. https://escholarship.org/uc/item/2p43j2cw\n\n\nZhu, J.-Q., León-Villagrá, P., Chater, N., & Sanborn, A. N. (2022). Understanding the structure of cognitive noise. PLoS Computational Biology, 18(8), e1010312. https://doi.org/10.1371/journal.pcbi.1010312\n\n\nZhu, J.-Q., Sundh, J., Spicer, J., Chater, N., & Sanborn, A. N. (2024). The autocorrelated Bayesian sampler: A rational process for probability judgments, estimates, confidence intervals, choices, confidence judgments, and response times. Psychological Review, 131(2), 456–493. https://doi.org/10.1037/rev0000427"
   },
   {
     "objectID": "materials.html",
@@ -515,14 +480,14 @@
     "href": "materials.html#slides",
     "title": "Materials",
     "section": "Slides",
-    "text": "Slides"
+    "text": "Slides\n\nIntroduction to the workshop\nThe samplr package\nThe Autocorrelated Bayesian Sampler\nApproximate Bayesian Computation (+ Discussion)"
   },
   {
-    "objectID": "materials.html#useful-files",
-    "href": "materials.html#useful-files",
+    "objectID": "materials.html#files",
+    "href": "materials.html#files",
     "title": "Materials",
-    "section": "Useful files",
-    "text": "Useful files"
+    "section": "Files",
+    "text": "Files\nPractice during the workshop will make use of these files."
   },
   {
     "objectID": "materials.html#documentation-to-the-samplr-package",
