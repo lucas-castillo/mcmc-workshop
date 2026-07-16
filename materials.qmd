@@ -5,48 +5,13 @@ title: "Materials"
 
 ## Slides
 
-<!-- - [Introduction to the workshop](slides/1-intro.html){target="_blank"} -->
-<!-- - [The `samplr` package](slides/2-samplr.html){target="_blank"} -->
-<!-- - [The Autocorrelated Bayesian Sampler](slides/3-abs.html){target="_blank"} -->
-<!-- - [Approximate Bayesian Computation (+ Discussion)](slides/4-abc.html){target="_blank"} -->
+- [Introduction to the workshop](slides/1-intro.html){target="_blank"}
+- [The `samplr` package](slides/2-samplr.html){target="_blank"}
+- [The Autocorrelated Bayesian Sampler](slides/3-abs.html){target="_blank"}
+- [Approximate Bayesian Computation (+ Discussion)](slides/4-abc.html){target="_blank"}
 
-## Useful files
-<!-- During the presentation, you will simulate synthetic random generation data. You will need: -->
-
-<!-- - The prior over models and parameters ([download](slides/files_for_attendees/prior.R){download="prior.R"}) -->
-
-<!-- ::: {.callout-note collapse=true} -->
-<!-- ### Some assistance -->
-<!-- You are encouraged to produce your own code that simulates the data. If you want to skip that step, you can use [this file](slides/files_for_attendees/simulate.R){download="simulate.R"}.  -->
-
-<!-- ::: {.callout-note collapse=true} -->
-<!-- #### Just give me the data! -->
-<!-- If you just want some simulated data, feel free to use [these simulations](slides/files_for_attendees/simulations.rds){download="simulations.rds"}, which were generated from [these parameters](slides/files_for_attendees/parameters.rds){download="parameters.rds"}. -->
-
-<!-- ::: -->
-
-<!-- ::: -->
-
-<!-- To turn data into summary statistics, you will need: -->
-
-<!-- - The `all_measures()` function ([download](slides/assets/get_1D_summaries.R){download="summary_statistics.R"}) -->
-
-<!-- You will also need the attendee data:  -->
-
-<!-- - If you attended this workshop on the 9th July, find the participant data [here](slides/files_for_attendees/9/obs_data.rds){download="obs_data.rds"} -->
-<!-- - If you attended this workshop on the 22nd July, find the participant data [here](slides/files_for_attendees/22/obs_data.rds){download="obs_data.rds"} -->
-
-<!-- ::: {.callout-note collapse=true} -->
-<!-- ### Summaries -->
-<!-- If you need them, you can find the summaries for simulated data [here](slides/files_for_attendees/sim_summaries.rds){download="sim_summaries.rds"}  -->
-
-<!-- Summaries for observed data:  -->
-
-<!-- - 9th July data ([here](slides/files_for_attendees/9/obs_summaries.rds){download="obs_summaries.rds"}) -->
-<!-- - 22nd July data ([here](slides/files_for_attendees/22/obs_summaries.rds){download="obs_summaries.rds"}) -->
-
-<!-- ::::  -->
-
+## Files
+Practice during the workshop will make use of [these files](slides/files_for_attendees.zip).
 
 ## Documentation to the `samplr` package
 The `samplr` package is an R package available on [CRAN](https://cran.r-project.org/web/packages/samplr/index.html).
