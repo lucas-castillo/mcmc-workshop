@@ -12,6 +12,7 @@ title: "Materials"
 
 ## Files
 Practice during the workshop will make use of [these files](slides/files_for_attendees.zip).
+Part 2 data [here](slides/files_for_attendees/data.zip)
 
 ## Documentation to the `samplr` package
 The `samplr` package is an R package available on [CRAN](https://cran.r-project.org/web/packages/samplr/index.html).
