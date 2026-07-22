@@ -1,7 +1,6 @@
 ---
 title: "Materials"
 ---
-{{< include _in-progress.qmd >}}
 
 ## Slides
 
